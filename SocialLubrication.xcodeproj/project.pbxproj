@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B108FC418E66B6B00B165B7 /* MLTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B108FC318E66B6B00B165B7 /* MLTableViewCell.xib */; };
+		2B27860618C569E4008B12B9 /* MLProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27860518C569E4008B12B9 /* MLProfileViewController.m */; };
+		2B5183F418A17DCB0078CCFD /* MLRegistrationImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5183F318A17DCB0078CCFD /* MLRegistrationImageViewController.m */; };
+		2B81B85118E5E0A80035EDCC /* MLUserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B85018E5E0A80035EDCC /* MLUserListTableViewCell.m */; };
 		2B921268189EE5B50041A154 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B921267189EE5B50041A154 /* Foundation.framework */; };
 		2B92126A189EE5B50041A154 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B921269189EE5B50041A154 /* CoreGraphics.framework */; };
 		2B92126C189EE5B50041A154 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B92126B189EE5B50041A154 /* UIKit.framework */; };
@@ -22,6 +26,15 @@
 		2B921289189EE5B50041A154 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B92126D189EE5B50041A154 /* CoreData.framework */; };
 		2B921291189EE5B50041A154 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B92128F189EE5B50041A154 /* InfoPlist.strings */; };
 		2B921293189EE5B50041A154 /* SocialLubricationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B921292189EE5B50041A154 /* SocialLubricationTests.m */; };
+		2BA04A1B189EE8F1003B2869 /* SocialLubrication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */; };
+		2BA04A1F189EE957003B2869 /* MLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA04A1E189EE957003B2869 /* MLLoginViewController.m */; };
+		2BB3A65F18C7B7DC00420B3C /* MLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB3A65E18C7B7DC00420B3C /* MLChatViewController.m */; };
+		2BD3BC5518B5614C00C0414C /* MLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3BC5418B5614C00C0414C /* MLUser.m */; };
+		2BDBB8E818BE678400A650F0 /* MLPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8E718BE678400A650F0 /* MLPeopleViewController.m */; };
+		2BDBB8EB18BE680100A650F0 /* MLInterestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8EA18BE680100A650F0 /* MLInterestViewController.m */; };
+		2BDBB8EF18BFBAF900A650F0 /* MLChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8EE18BFBAF900A650F0 /* MLChatTableViewController.m */; };
+		2BEE7E7618A043D600744AFC /* MLRegistrationUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE7E7518A043D600744AFC /* MLRegistrationUserInfoViewController.m */; };
+		45A4E92641384226AFC21BD8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B66014A602417EB60FDC1D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21E8D6AF7B5E4A2C9E980427 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2B108FC318E66B6B00B165B7 /* MLTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLTableViewCell.xib; sourceTree = "<group>"; };
+		2B27860418C569E4008B12B9 /* MLProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLProfileViewController.h; sourceTree = "<group>"; };
+		2B27860518C569E4008B12B9 /* MLProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLProfileViewController.m; sourceTree = "<group>"; };
+		2B5183F218A17DCB0078CCFD /* MLRegistrationImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRegistrationImageViewController.h; sourceTree = "<group>"; };
+		2B5183F318A17DCB0078CCFD /* MLRegistrationImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRegistrationImageViewController.m; sourceTree = "<group>"; };
+		2B81B84F18E5E0A80035EDCC /* MLUserListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLUserListTableViewCell.h; sourceTree = "<group>"; };
+		2B81B85018E5E0A80035EDCC /* MLUserListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLUserListTableViewCell.m; sourceTree = "<group>"; };
 		2B921264189EE5B50041A154 /* SocialLubrication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLubrication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B921267189EE5B50041A154 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2B921269189EE5B50041A154 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +74,22 @@
 		2B92128E189EE5B50041A154 /* SocialLubricationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocialLubricationTests-Info.plist"; sourceTree = "<group>"; };
 		2B921290189EE5B50041A154 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B921292189EE5B50041A154 /* SocialLubricationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialLubricationTests.m; sourceTree = "<group>"; };
+		2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SocialLubrication.storyboard; sourceTree = "<group>"; };
+		2BA04A1D189EE957003B2869 /* MLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLoginViewController.h; sourceTree = "<group>"; };
+		2BA04A1E189EE957003B2869 /* MLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLoginViewController.m; sourceTree = "<group>"; };
+		2BB3A65D18C7B7DC00420B3C /* MLChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLChatViewController.h; sourceTree = "<group>"; };
+		2BB3A65E18C7B7DC00420B3C /* MLChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLChatViewController.m; sourceTree = "<group>"; };
+		2BD3BC5318B5614C00C0414C /* MLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLUser.h; sourceTree = "<group>"; };
+		2BD3BC5418B5614C00C0414C /* MLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLUser.m; sourceTree = "<group>"; };
+		2BDBB8E618BE678400A650F0 /* MLPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPeopleViewController.h; sourceTree = "<group>"; };
+		2BDBB8E718BE678400A650F0 /* MLPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPeopleViewController.m; sourceTree = "<group>"; };
+		2BDBB8E918BE680100A650F0 /* MLInterestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLInterestViewController.h; sourceTree = "<group>"; };
+		2BDBB8EA18BE680100A650F0 /* MLInterestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLInterestViewController.m; sourceTree = "<group>"; };
+		2BDBB8ED18BFBAF900A650F0 /* MLChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLChatTableViewController.h; sourceTree = "<group>"; };
+		2BDBB8EE18BFBAF900A650F0 /* MLChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLChatTableViewController.m; sourceTree = "<group>"; };
+		2BEE7E7418A043D600744AFC /* MLRegistrationUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRegistrationUserInfoViewController.h; sourceTree = "<group>"; };
+		2BEE7E7518A043D600744AFC /* MLRegistrationUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRegistrationUserInfoViewController.m; sourceTree = "<group>"; };
+		52B66014A602417EB60FDC1D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +101,7 @@
 				2B92126E189EE5B50041A154 /* CoreData.framework in Frameworks */,
 				2B92126C189EE5B50041A154 /* UIKit.framework in Frameworks */,
 				2B921268189EE5B50041A154 /* Foundation.framework in Frameworks */,
+				45A4E92641384226AFC21BD8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +119,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B2785FC18C50062008B12B9 /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2B27860418C569E4008B12B9 /* MLProfileViewController.h */,
+				2B27860518C569E4008B12B9 /* MLProfileViewController.m */,
+			);
+			name = "User Profile";
+			sourceTree = "<group>";
+		};
+		2B81B85218E5E0B00035EDCC /* Custom Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B81B84F18E5E0A80035EDCC /* MLUserListTableViewCell.h */,
+				2B81B85018E5E0A80035EDCC /* MLUserListTableViewCell.m */,
+				2B108FC318E66B6B00B165B7 /* MLTableViewCell.xib */,
+			);
+			name = "Custom Table Cell";
+			sourceTree = "<group>";
+		};
 		2B92125B189EE5B50041A154 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +145,7 @@
 				2B92128C189EE5B50041A154 /* SocialLubricationTests */,
 				2B921266189EE5B50041A154 /* Frameworks */,
 				2B921265189EE5B50041A154 /* Products */,
+				21E8D6AF7B5E4A2C9E980427 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +166,7 @@
 				2B92126B189EE5B50041A154 /* UIKit.framework */,
 				2B92126D189EE5B50041A154 /* CoreData.framework */,
 				2B921285189EE5B50041A154 /* XCTest.framework */,
+				52B66014A602417EB60FDC1D /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,10 +174,17 @@
 		2B92126F189EE5B50041A154 /* SocialLubrication */ = {
 			isa = PBXGroup;
 			children = (
+				2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */,
 				2B921278189EE5B50041A154 /* MLAppDelegate.h */,
 				2B921279189EE5B50041A154 /* MLAppDelegate.m */,
+				2BA04A1C189EE938003B2869 /* Login */,
+				2BEE7E7018A0438400744AFC /* Registration */,
+				2BEE7E7718A0639900744AFC /* Interest */,
+				2BDBB8E518BE66E400A650F0 /* People */,
+				2BDBB8EC18BFBAC700A650F0 /* Available Users */,
 				2B92127E189EE5B50041A154 /* Images.xcassets */,
 				2B92127B189EE5B50041A154 /* SocialLubrication.xcdatamodeld */,
+				2BC9C8FE18AAE6960034C753 /* Helper Classes */,
 				2B921270189EE5B50041A154 /* Supporting Files */,
 			);
 			path = SocialLubrication;
@@ -127,6 +193,7 @@
 		2B921270189EE5B50041A154 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2B81B85218E5E0B00035EDCC /* Custom Table Cell */,
 				2B921271189EE5B50041A154 /* SocialLubrication-Info.plist */,
 				2B921272189EE5B50041A154 /* InfoPlist.strings */,
 				2B921275189EE5B50041A154 /* main.m */,
@@ -153,6 +220,89 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2BA04A1C189EE938003B2869 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2BA04A1D189EE957003B2869 /* MLLoginViewController.h */,
+				2BA04A1E189EE957003B2869 /* MLLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		2BB3A65918C7B75E00420B3C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				2BB3A65D18C7B7DC00420B3C /* MLChatViewController.h */,
+				2BB3A65E18C7B7DC00420B3C /* MLChatViewController.m */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		2BC9C8FE18AAE6960034C753 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2BD3BC5318B5614C00C0414C /* MLUser.h */,
+				2BD3BC5418B5614C00C0414C /* MLUser.m */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		2BDBB8E518BE66E400A650F0 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				2BDBB8E618BE678400A650F0 /* MLPeopleViewController.h */,
+				2BDBB8E718BE678400A650F0 /* MLPeopleViewController.m */,
+			);
+			name = People;
+			sourceTree = "<group>";
+		};
+		2BDBB8EC18BFBAC700A650F0 /* Available Users */ = {
+			isa = PBXGroup;
+			children = (
+				2BDBB8ED18BFBAF900A650F0 /* MLChatTableViewController.h */,
+				2BDBB8EE18BFBAF900A650F0 /* MLChatTableViewController.m */,
+				2B2785FC18C50062008B12B9 /* User Profile */,
+				2BB3A65918C7B75E00420B3C /* Chat */,
+			);
+			name = "Available Users";
+			sourceTree = "<group>";
+		};
+		2BEE7E7018A0438400744AFC /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				2BEE7E7118A0439200744AFC /* User Information */,
+				2BEE7E7218A043A000744AFC /* User Image */,
+			);
+			name = Registration;
+			sourceTree = "<group>";
+		};
+		2BEE7E7118A0439200744AFC /* User Information */ = {
+			isa = PBXGroup;
+			children = (
+				2BEE7E7418A043D600744AFC /* MLRegistrationUserInfoViewController.h */,
+				2BEE7E7518A043D600744AFC /* MLRegistrationUserInfoViewController.m */,
+			);
+			name = "User Information";
+			sourceTree = "<group>";
+		};
+		2BEE7E7218A043A000744AFC /* User Image */ = {
+			isa = PBXGroup;
+			children = (
+				2B5183F218A17DCB0078CCFD /* MLRegistrationImageViewController.h */,
+				2B5183F318A17DCB0078CCFD /* MLRegistrationImageViewController.m */,
+			);
+			name = "User Image";
+			sourceTree = "<group>";
+		};
+		2BEE7E7718A0639900744AFC /* Interest */ = {
+			isa = PBXGroup;
+			children = (
+				2BDBB8E918BE680100A650F0 /* MLInterestViewController.h */,
+				2BDBB8EA18BE680100A650F0 /* MLInterestViewController.m */,
+			);
+			name = Interest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B921296189EE5B50041A154 /* Build configuration list for PBXNativeTarget "SocialLubrication" */;
 			buildPhases = (
+				E2521CF134E94FB4B52C26A6 /* Check Pods Manifest.lock */,
 				2B921260189EE5B50041A154 /* Sources */,
 				2B921261189EE5B50041A154 /* Frameworks */,
 				2B921262189EE5B50041A154 /* Resources */,
+				FD5FE25331A146D0BD8ADDDA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,8 +381,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B108FC418E66B6B00B165B7 /* MLTableViewCell.xib in Resources */,
 				2B921274189EE5B50041A154 /* InfoPlist.strings in Resources */,
 				2B92127F189EE5B50041A154 /* Images.xcassets in Resources */,
+				2BA04A1B189EE8F1003B2869 /* SocialLubrication.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +398,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E2521CF134E94FB4B52C26A6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD5FE25331A146D0BD8ADDDA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2B921260189EE5B50041A154 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BDBB8EF18BFBAF900A650F0 /* MLChatTableViewController.m in Sources */,
 				2B92127D189EE5B50041A154 /* SocialLubrication.xcdatamodeld in Sources */,
+				2BEE7E7618A043D600744AFC /* MLRegistrationUserInfoViewController.m in Sources */,
+				2BD3BC5518B5614C00C0414C /* MLUser.m in Sources */,
 				2B921276189EE5B50041A154 /* main.m in Sources */,
+				2B27860618C569E4008B12B9 /* MLProfileViewController.m in Sources */,
+				2BDBB8E818BE678400A650F0 /* MLPeopleViewController.m in Sources */,
 				2B92127A189EE5B50041A154 /* MLAppDelegate.m in Sources */,
+				2BDBB8EB18BE680100A650F0 /* MLInterestViewController.m in Sources */,
+				2BB3A65F18C7B7DC00420B3C /* MLChatViewController.m in Sources */,
+				2BA04A1F189EE957003B2869 /* MLLoginViewController.m in Sources */,
+				2B5183F418A17DCB0078CCFD /* MLRegistrationImageViewController.m in Sources */,
+				2B81B85118E5E0A80035EDCC /* MLUserListTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +564,7 @@
 		};
 		2B921297189EE5B50041A154 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21E8D6AF7B5E4A2C9E980427 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -380,6 +578,7 @@
 		};
 		2B921298189EE5B50041A154 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21E8D6AF7B5E4A2C9E980427 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -452,6 +651,7 @@
 				2B921298189EE5B50041A154 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B921299189EE5B50041A154 /* Build configuration list for PBXNativeTarget "SocialLubricationTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +660,7 @@
 				2B92129B189EE5B50041A154 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

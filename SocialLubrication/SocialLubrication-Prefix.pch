@@ -14,4 +14,14 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
+
+#define USER_NAME @"username"
+#define USER_GENDER @"gender"
+#define USER_EMAIL @"email"
+#define USER_BIRTHDAY @"birthday"
+#define USER_CREDENTIALS @"credentials"
+#define USER_PASSWORD @"password"
+#define USER_IMAGE @"portrait"
+
+#import <Parse/Parse.h>
 #endif
