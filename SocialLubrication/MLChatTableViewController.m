@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSMutableArray *availableUsers;
 @property (strong, nonatomic) NSMutableArray *invitedUsers;
 @property (strong, nonatomic) NSTimer *userTimer;
+@property (strong, nonatomic) NSArray *createChatRoom;
 
 @end
 
@@ -107,14 +108,43 @@
     }
     
     if(indexPath.section == 0){
-        
         PFObject *invitedUsers = [self.invitedUsers objectAtIndex:indexPath.row];
         PFUser *invitedUser = [invitedUsers objectForKey:@"toUser"];
-        cell.usernameLabel.text = invitedUser.username;
-        [cell.userFunctionButton setTitle:@"Chat" forState:UIControlStateNormal];
-        [cell.userFunctionButton addTarget:self
-                                    action:@selector(chatFriend:) forControlEvents:UIControlEventTouchUpInside];
-        }
+        
+        PFQuery *inverseQuery = [[PFQuery alloc] initWithClassName:@"Activity"];
+        [inverseQuery whereKey:@"fromUser" equalTo:invitedUser];
+        [inverseQuery whereKey:@"toUser" equalTo:[PFUser currentUser]];
+        [inverseQuery whereKey:@"activity" equalTo:@"invite"];
+
+        [inverseQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            if(!error){
+                
+                self.createChatRoom = [objects mutableCopy];
+                NSLog(@"createChatRoom: %@", self.createChatRoom);
+
+                
+                if([self.createChatRoom count] == 0){
+                    cell.usernameLabel.text = invitedUser.username;
+                    [cell.userFunctionButton setTitle:@"Pending.." forState:UIControlStateNormal];
+                    [cell.userFunctionButton setEnabled:NO];
+                    
+                }
+                else{
+                    cell.usernameLabel.text = invitedUser.username;
+                    [cell.userFunctionButton setTitle:@"Chat" forState:UIControlStateNormal];
+                    [cell.userFunctionButton addTarget:self
+                                                action:@selector(chatFriend:) forControlEvents:UIControlEventTouchUpInside];
+                    [cell.userFunctionButton setEnabled:YES];
+                    }
+                }
+              }];
+        
+}
+    
+
+
+
     
     if(indexPath.section == 1){
         PFObject *availableUsers = [self.availableUsers objectAtIndex:indexPath.row];
@@ -122,6 +152,7 @@
         cell.usernameLabel.text = availableUser.username;
         [cell.userFunctionButton setTitle:@"Invite" forState:UIControlStateNormal];
         [cell.userFunctionButton addTarget:self action:@selector(inviteFriend:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.userFunctionButton setEnabled:YES];
         [cell.userFunctionButton setTag:indexPath.row];
     }
     
@@ -139,6 +170,7 @@
     UIButton *button = (UIButton *)sender;
     
     [button setTitle:@"Pending.." forState:UIControlStateNormal];
+    [button setEnabled:NO];
     [button removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     PFUser *user = [self.availableUsers objectAtIndex:[sender tag]];
     [self saveInvite:user];
@@ -179,6 +211,7 @@
     [activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
     [activityQuery includeKey:@"fromUser"];
     [activityQuery includeKey:@"toUser"];
+    
     [locationQuery whereKey:@"activity" matchesKey:@"invite" inQuery:activityQuery];
     
     [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -186,11 +219,11 @@
                 [self.invitedUsers removeAllObjects];
                 self.invitedUsers = [objects mutableCopy];
                 [self.tableView reloadData];
-                //NSLog(@"Invited Users: %@", self.invitedUsers);
+                NSLog(@"Invited Users: %@", self.invitedUsers);
             }
     }];
-    
 }
+
 
 -(void)saveInvite:(PFUser *)user{
     PFObject *setInvite = [PFObject objectWithClassName:@"Activity"];
