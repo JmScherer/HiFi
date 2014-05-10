@@ -17,6 +17,8 @@
     
     IBOutlet UIScrollView *scroller;
 }
+
 @property (weak, nonatomic) id <MLRegistrationUserInfoViewControllerDelegate> delegate;
+@property (strong, nonatomic) NSString *userText;
 
 @end

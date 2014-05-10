@@ -23,6 +23,7 @@
 @property (nonatomic) BOOL correctUser;
 
 - (IBAction)userImagePickerButtonPressed:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *cancelButtonPressed;
 
 
 @end
@@ -170,6 +171,12 @@
 - (IBAction)userImagePickerButtonPressed:(UIButton *)sender {
     
     [self.delegate userInviteApproval:self.correctUser];
+}
+
+
+- (IBAction)cancelButtonPressed:(UIButton *)sender {
+    [self.delegate cancelInvite];
+    
 }
 
 @end

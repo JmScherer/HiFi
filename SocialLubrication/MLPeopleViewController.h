@@ -12,6 +12,7 @@
 
 @required
 -(void)userInviteApproval:(BOOL)userSelection;
+-(void)cancelInvite;
 
 @end
 

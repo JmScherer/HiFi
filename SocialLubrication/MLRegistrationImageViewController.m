@@ -12,6 +12,8 @@
 @interface MLRegistrationImageViewController () <UIImagePickerControllerDelegate, UINavigationBarDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *userImageView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIButton *setImageButtonPressed;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *createAccountBarButtonPressed;
 
 @end
 
@@ -29,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.setImageButtonPressed.enabled = YES;
+    self.createAccountBarButtonPressed.enabled = YES;
+    self.navigationItem.backBarButtonItem.enabled = YES;
     
     self.activityIndicator.hidden = YES;
     
@@ -78,6 +84,10 @@
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
     
+    self.setImageButtonPressed.enabled = NO;
+    self.createAccountBarButtonPressed.enabled = NO;
+    self.navigationItem.backBarButtonItem.enabled = NO;
+    
     NSLog(@"%@", self.userCredentials.userName);
     NSLog(@"%@", self.userCredentials.userPassword);
     NSLog(@"%@", self.userCredentials.userEmail);
@@ -112,6 +122,13 @@
                             [userDefaultLocation setObject:@"Home" forKey:@"location"];
                             [userDefaultLocation saveInBackground];
                         }];
+                    }
+                    else{
+                        self.setImageButtonPressed.enabled = YES;
+                        self.createAccountBarButtonPressed.enabled = YES;
+                        self.navigationItem.backBarButtonItem.enabled = YES;
+                        self.activityIndicator.hidden = YES;
+                        [self.activityIndicator stopAnimating];
                     }
                 }];
             }];

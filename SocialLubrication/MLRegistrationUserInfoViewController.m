@@ -42,6 +42,7 @@
 {
     [super viewDidLoad];
     
+    
     [self subscribeToKeyboardEvents:YES];
     
     [scroller setScrollEnabled:YES];
@@ -65,6 +66,10 @@
     [self checkBirthday];
     
     scroller.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+    
+    self.textFieldUsername.text = self.userText;
+    
+    NSLog(@"Username: %@", self.textFieldUsername.text);
 
     
 }

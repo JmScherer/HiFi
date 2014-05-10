@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MLUser.h"
+#import "MLRegistrationUserInfoViewController.h"
 
-
-@interface MLLoginViewController : UIViewController{
+@interface MLLoginViewController : UIViewController <MLRegistrationUserInfoViewControllerDelegate>{
     
     IBOutlet UIScrollView *scroller;
 }

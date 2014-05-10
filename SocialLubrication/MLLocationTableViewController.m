@@ -158,7 +158,8 @@
         [userLocation saveInBackground];
         MLUser *user = [MLUser sharedInstance];
         user.userLocation = venue.name;
-        //[self performSegueWithIdentifier:@"" sender:self];
+            self.tabBarController.selectedIndex = 2;
+        //[self performSegueWithIdentifier:@"locationToPatronsSegue" sender:self];
         }
         else{
             NSLog(@"Error: %@", error);
@@ -168,26 +169,26 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    NSLog(@"this happened");
-    
-    NSIndexPath *indexPath = sender;
-    MLVenue *venue = _venues[indexPath.row];
-    PFQuery *updateLocation = [PFQuery queryWithClassName:@"Location"];
-    [updateLocation whereKey:@"user" equalTo:[PFUser currentUser]];
-    
-    [updateLocation getFirstObjectInBackgroundWithBlock:^(PFObject *userLocation, NSError *error) {
-        
-        if(!error){
-            [userLocation setValue:venue.name forKey:@"location"];
-            [userLocation saveInBackground];
-            MLUser *user = [MLUser sharedInstance];
-            user.userLocation = venue.name;
-            //[self performSegueWithIdentifier:@"" sender:self];
-        }
-        else{
-            NSLog(@"Error: %@", error);
-        }
-    }];
+//    NSLog(@"this happened");
+//    
+//    NSIndexPath *indexPath = sender;
+//    MLVenue *venue = _venues[indexPath.row];
+//    PFQuery *updateLocation = [PFQuery queryWithClassName:@"Location"];
+//    [updateLocation whereKey:@"user" equalTo:[PFUser currentUser]];
+//    
+//    [updateLocation getFirstObjectInBackgroundWithBlock:^(PFObject *userLocation, NSError *error) {
+//        
+//        if(!error){
+//            [userLocation setValue:venue.name forKey:@"location"];
+//            [userLocation saveInBackground];
+//            MLUser *user = [MLUser sharedInstance];
+//            user.userLocation = venue.name;
+//            [self performSegueWithIdentifier:@"" sender:self];
+//        }
+//        else{
+//            NSLog(@"Error: %@", error);
+//        }
+//    }];
     
 }
 

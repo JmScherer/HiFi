@@ -158,6 +158,11 @@
     if([segue.destinationViewController isKindOfClass:[MLRegistrationUserInfoViewController class]]){
         MLRegistrationUserInfoViewController *registerUserVC = segue.destinationViewController;
         registerUserVC.delegate = self;
+        NSLog(@"Username Before: %@", self.usernameTextField.text);
+        
+        
+        registerUserVC.userText = self.usernameTextField.text;
+        NSLog(@"Username After: %@", registerUserVC.userText);
     }
     
 }

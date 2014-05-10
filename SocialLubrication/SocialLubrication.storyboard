@@ -322,7 +322,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hiC-U9-8ap">
-                                <rect key="frame" x="139" y="445" width="37" height="30"/>
+                                <rect key="frame" x="263" y="445" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -337,10 +337,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bAd-0o-Omt">
+                                <rect key="frame" x="19" y="445" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="B5D-co-DgV" eventType="touchUpInside" id="6Mz-4K-aHA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButtonPressed" destination="bAd-0o-Omt" id="t3R-bG-4sw"/>
                         <outlet property="userImage1" destination="ZwF-ff-KXh" id="jDc-dy-aty"/>
                         <outlet property="userImage2" destination="ui5-Og-V6q" id="3qm-2o-vxB"/>
                         <outlet property="userImage3" destination="XME-Sd-XGL" id="LEv-Nh-zA3"/>
@@ -365,7 +376,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ROO-Zy-GTs">
-                                <rect key="frame" x="125" y="459" width="70" height="30"/>
+                                <rect key="frame" x="125" y="451" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Set Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -375,7 +386,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="HRB-SY-lpK">
-                                <rect key="frame" x="150" y="528" width="20" height="20"/>
+                                <rect key="frame" x="150" y="423" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -392,6 +403,8 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="HRB-SY-lpK" id="Id3-RE-ETR"/>
+                        <outlet property="createAccountBarButtonPressed" destination="aLz-iq-Cj8" id="NaL-SN-jNg"/>
+                        <outlet property="setImageButtonPressed" destination="ROO-Zy-GTs" id="kVk-Gh-dVp"/>
                         <outlet property="userImageView" destination="nQr-gN-Njb" id="zWG-51-Nna"/>
                     </connections>
                 </viewController>
@@ -646,7 +659,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ppb-af-dgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1921" y="-1608"/>
+            <point key="canvasLocation" x="-1937" y="-1608"/>
         </scene>
         <!--Navigation Controller - Location-->
         <scene sceneID="ghd-Ue-Qoc">
