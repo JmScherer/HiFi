@@ -8,6 +8,7 @@
 
 #import "MLLoginViewController.h"
 #import "MLRegistrationUserInfoViewController.h"
+#import "MLUser.h"
 
 @interface MLLoginViewController () <UITextFieldDelegate, MLRegistrationUserInfoViewControllerDelegate>
 
@@ -37,15 +38,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self subscribeToKeyboardEvents:YES];
     
-    
-    
+    [scroller setScrollEnabled:YES];
+    scroller.contentSize = CGSizeMake(320, 568);
     
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+    [scroller addGestureRecognizer:tap];
     
     self.loginActivityIndicator.hidden = YES;
     
@@ -54,12 +56,94 @@
     self.usernameTextField.text = @"Jscherer";
     self.passwordTextField.text = @"Homehome1";
 
+    scroller.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden = YES;
 }
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [self subscribeToKeyboardEvents:NO];
+}
+
+- (void)subscribeToKeyboardEvents:(BOOL)subscribe{
+    
+    if(subscribe){
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardDidShow:)
+                                                     name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillHide:)
+                                                     name:UIKeyboardWillHideNotification object:nil];
+    }else{
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+    
+}
+
+- (void) keyboardDidShow:(NSNotification *)nsNotification {
+    
+    NSDictionary * userInfo = [nsNotification userInfo];
+    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect newFrame = [scroller frame];
+    
+    CGFloat kHeight = kbSize.height;
+    
+    if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
+        kHeight = kbSize.width;
+    }
+    
+    newFrame.size.height -= kHeight;
+    
+    [scroller setFrame:newFrame];
+    
+}
+
+-(void)keyboardWillHide:(NSNotification *)nsNotification {
+    
+    NSDictionary * userInfo = [nsNotification userInfo];
+    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect newFrame = [scroller frame];
+    
+    CGFloat kHeight = kbSize.height;
+    
+    if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
+        kHeight = kbSize.width;
+    }
+    
+    newFrame.size.height += kHeight;
+    
+    // save the content offset before the frame change
+    CGPoint contentOffsetBefore = scroller.contentOffset;
+    
+    [scroller setHidden:YES];
+    
+    // set the new frame
+    [scroller setFrame:newFrame];
+    
+    // get the content offset after the frame change
+    CGPoint contentOffsetAfter =  scroller.contentOffset;
+    
+    // content offset initial state
+    [scroller setContentOffset:contentOffsetBefore];
+    
+    [scroller setHidden:NO];
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         [scroller setContentOffset:contentOffsetAfter];
+                     }
+                     completion:^(BOOL finished){
+                         // do nothing for the time being...
+                     }
+     ];
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -103,8 +187,6 @@
 
 - (IBAction)SigninButtonPressed:(UIButton *)sender {
     
-    
-    
     self.loginActivityIndicator.hidden = NO;
     [self.loginActivityIndicator startAnimating];
     self.createAccountButton.enabled = NO;
@@ -119,6 +201,7 @@
         
         if (user) {
             [self performSegueWithIdentifier:@"loginToInterestSegue" sender:self];
+            [MLUser sharedInstance];
         }
         else {
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -130,6 +213,14 @@
 }
 
 #pragma mark - MLRegistrationDelegate
+
+- (IBAction)awesomeButton:(UIButton *)sender {
+    
+    self.usernameTextField.text = @"Awesome";
+    self.passwordTextField.text = @"Awesome";
+    
+    
+}
 
 
 

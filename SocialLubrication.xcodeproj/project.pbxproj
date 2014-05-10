@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B05CD8118FCB30000B97053 /* MLVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B05CD8018FCB30000B97053 /* MLVenue.m */; };
+		2B05CD8618FCB3BA00B97053 /* MLLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B05CD8518FCB3BA00B97053 /* MLLocationTableViewController.m */; };
 		2B108FC418E66B6B00B165B7 /* MLTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B108FC318E66B6B00B165B7 /* MLTableViewCell.xib */; };
+		2B25795518F203F4009271B5 /* MLChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B25795418F203F4009271B5 /* MLChatRoomViewController.m */; };
 		2B27860618C569E4008B12B9 /* MLProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27860518C569E4008B12B9 /* MLProfileViewController.m */; };
+		2B4F03C2190F3349002A4F8E /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B4F03C1190F3349002A4F8E /* placeholder.jpg */; };
+		2B4F31C918FDA20D00B72A1A /* MLCoreLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F31C818FDA20D00B72A1A /* MLCoreLocation.m */; };
 		2B5183F418A17DCB0078CCFD /* MLRegistrationImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5183F318A17DCB0078CCFD /* MLRegistrationImageViewController.m */; };
 		2B81B85118E5E0A80035EDCC /* MLUserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B85018E5E0A80035EDCC /* MLUserListTableViewCell.m */; };
 		2B921268189EE5B50041A154 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B921267189EE5B50041A154 /* Foundation.framework */; };
@@ -28,11 +33,11 @@
 		2B921293189EE5B50041A154 /* SocialLubricationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B921292189EE5B50041A154 /* SocialLubricationTests.m */; };
 		2BA04A1B189EE8F1003B2869 /* SocialLubrication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */; };
 		2BA04A1F189EE957003B2869 /* MLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA04A1E189EE957003B2869 /* MLLoginViewController.m */; };
-		2BB3A65F18C7B7DC00420B3C /* MLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB3A65E18C7B7DC00420B3C /* MLChatViewController.m */; };
 		2BD3BC5518B5614C00C0414C /* MLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3BC5418B5614C00C0414C /* MLUser.m */; };
 		2BDBB8E818BE678400A650F0 /* MLPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8E718BE678400A650F0 /* MLPeopleViewController.m */; };
 		2BDBB8EB18BE680100A650F0 /* MLInterestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8EA18BE680100A650F0 /* MLInterestViewController.m */; };
-		2BDBB8EF18BFBAF900A650F0 /* MLChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8EE18BFBAF900A650F0 /* MLChatTableViewController.m */; };
+		2BDBB8EF18BFBAF900A650F0 /* MLPatronsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8EE18BFBAF900A650F0 /* MLPatronsTableViewController.m */; };
+		2BE57AFF1918013000D9F3D0 /* MLChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE57AFE1918013000D9F3D0 /* MLChatTableViewController.m */; };
 		2BEE7E7618A043D600744AFC /* MLRegistrationUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE7E7518A043D600744AFC /* MLRegistrationUserInfoViewController.m */; };
 		45A4E92641384226AFC21BD8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B66014A602417EB60FDC1D /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -49,9 +54,18 @@
 
 /* Begin PBXFileReference section */
 		21E8D6AF7B5E4A2C9E980427 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2B05CD7F18FCB30000B97053 /* MLVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLVenue.h; sourceTree = "<group>"; };
+		2B05CD8018FCB30000B97053 /* MLVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLVenue.m; sourceTree = "<group>"; };
+		2B05CD8418FCB3BA00B97053 /* MLLocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLocationTableViewController.h; sourceTree = "<group>"; };
+		2B05CD8518FCB3BA00B97053 /* MLLocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLocationTableViewController.m; sourceTree = "<group>"; };
 		2B108FC318E66B6B00B165B7 /* MLTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLTableViewCell.xib; sourceTree = "<group>"; };
+		2B25795318F203F4009271B5 /* MLChatRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLChatRoomViewController.h; sourceTree = "<group>"; };
+		2B25795418F203F4009271B5 /* MLChatRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLChatRoomViewController.m; sourceTree = "<group>"; };
 		2B27860418C569E4008B12B9 /* MLProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLProfileViewController.h; sourceTree = "<group>"; };
 		2B27860518C569E4008B12B9 /* MLProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLProfileViewController.m; sourceTree = "<group>"; };
+		2B4F03C1190F3349002A4F8E /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
+		2B4F31C718FDA20D00B72A1A /* MLCoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCoreLocation.h; sourceTree = "<group>"; };
+		2B4F31C818FDA20D00B72A1A /* MLCoreLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCoreLocation.m; sourceTree = "<group>"; };
 		2B5183F218A17DCB0078CCFD /* MLRegistrationImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRegistrationImageViewController.h; sourceTree = "<group>"; };
 		2B5183F318A17DCB0078CCFD /* MLRegistrationImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRegistrationImageViewController.m; sourceTree = "<group>"; };
 		2B81B84F18E5E0A80035EDCC /* MLUserListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLUserListTableViewCell.h; sourceTree = "<group>"; };
@@ -77,16 +91,16 @@
 		2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SocialLubrication.storyboard; sourceTree = "<group>"; };
 		2BA04A1D189EE957003B2869 /* MLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLoginViewController.h; sourceTree = "<group>"; };
 		2BA04A1E189EE957003B2869 /* MLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLoginViewController.m; sourceTree = "<group>"; };
-		2BB3A65D18C7B7DC00420B3C /* MLChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLChatViewController.h; sourceTree = "<group>"; };
-		2BB3A65E18C7B7DC00420B3C /* MLChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLChatViewController.m; sourceTree = "<group>"; };
 		2BD3BC5318B5614C00C0414C /* MLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLUser.h; sourceTree = "<group>"; };
 		2BD3BC5418B5614C00C0414C /* MLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLUser.m; sourceTree = "<group>"; };
 		2BDBB8E618BE678400A650F0 /* MLPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPeopleViewController.h; sourceTree = "<group>"; };
 		2BDBB8E718BE678400A650F0 /* MLPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPeopleViewController.m; sourceTree = "<group>"; };
 		2BDBB8E918BE680100A650F0 /* MLInterestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLInterestViewController.h; sourceTree = "<group>"; };
 		2BDBB8EA18BE680100A650F0 /* MLInterestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLInterestViewController.m; sourceTree = "<group>"; };
-		2BDBB8ED18BFBAF900A650F0 /* MLChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLChatTableViewController.h; sourceTree = "<group>"; };
-		2BDBB8EE18BFBAF900A650F0 /* MLChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLChatTableViewController.m; sourceTree = "<group>"; };
+		2BDBB8ED18BFBAF900A650F0 /* MLPatronsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPatronsTableViewController.h; sourceTree = "<group>"; };
+		2BDBB8EE18BFBAF900A650F0 /* MLPatronsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPatronsTableViewController.m; sourceTree = "<group>"; };
+		2BE57AFD1918013000D9F3D0 /* MLChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLChatTableViewController.h; sourceTree = "<group>"; };
+		2BE57AFE1918013000D9F3D0 /* MLChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLChatTableViewController.m; sourceTree = "<group>"; };
 		2BEE7E7418A043D600744AFC /* MLRegistrationUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRegistrationUserInfoViewController.h; sourceTree = "<group>"; };
 		2BEE7E7518A043D600744AFC /* MLRegistrationUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRegistrationUserInfoViewController.m; sourceTree = "<group>"; };
 		52B66014A602417EB60FDC1D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +133,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B05CD8218FCB30900B97053 /* Foursquare */ = {
+			isa = PBXGroup;
+			children = (
+				2B05CD7F18FCB30000B97053 /* MLVenue.h */,
+				2B05CD8018FCB30000B97053 /* MLVenue.m */,
+			);
+			name = Foursquare;
+			sourceTree = "<group>";
+		};
+		2B05CD8318FCB39700B97053 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				2B05CD8418FCB3BA00B97053 /* MLLocationTableViewController.h */,
+				2B05CD8518FCB3BA00B97053 /* MLLocationTableViewController.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		2B2785FC18C50062008B12B9 /* User Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +158,15 @@
 				2B27860518C569E4008B12B9 /* MLProfileViewController.m */,
 			);
 			name = "User Profile";
+			sourceTree = "<group>";
+		};
+		2B4F31C618FDA15900B72A1A /* Core Location */ = {
+			isa = PBXGroup;
+			children = (
+				2B4F31C718FDA20D00B72A1A /* MLCoreLocation.h */,
+				2B4F31C818FDA20D00B72A1A /* MLCoreLocation.m */,
+			);
+			name = "Core Location";
 			sourceTree = "<group>";
 		};
 		2B81B85218E5E0B00035EDCC /* Custom Table Cell */ = {
@@ -180,8 +221,10 @@
 				2BA04A1C189EE938003B2869 /* Login */,
 				2BEE7E7018A0438400744AFC /* Registration */,
 				2BEE7E7718A0639900744AFC /* Interest */,
-				2BDBB8E518BE66E400A650F0 /* People */,
+				2B05CD8318FCB39700B97053 /* Location */,
 				2BDBB8EC18BFBAC700A650F0 /* Available Users */,
+				2BE57AFC1917FFC300D9F3D0 /* Chat Rooms */,
+				2B2785FC18C50062008B12B9 /* User Profile */,
 				2B92127E189EE5B50041A154 /* Images.xcassets */,
 				2B92127B189EE5B50041A154 /* SocialLubrication.xcdatamodeld */,
 				2BC9C8FE18AAE6960034C753 /* Helper Classes */,
@@ -193,6 +236,9 @@
 		2B921270189EE5B50041A154 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2B4F03C1190F3349002A4F8E /* placeholder.jpg */,
+				2B4F31C618FDA15900B72A1A /* Core Location */,
+				2B05CD8218FCB30900B97053 /* Foursquare */,
 				2B81B85218E5E0B00035EDCC /* Custom Table Cell */,
 				2B921271189EE5B50041A154 /* SocialLubrication-Info.plist */,
 				2B921272189EE5B50041A154 /* InfoPlist.strings */,
@@ -232,8 +278,8 @@
 		2BB3A65918C7B75E00420B3C /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				2BB3A65D18C7B7DC00420B3C /* MLChatViewController.h */,
-				2BB3A65E18C7B7DC00420B3C /* MLChatViewController.m */,
+				2B25795318F203F4009271B5 /* MLChatRoomViewController.h */,
+				2B25795418F203F4009271B5 /* MLChatRoomViewController.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -259,12 +305,21 @@
 		2BDBB8EC18BFBAC700A650F0 /* Available Users */ = {
 			isa = PBXGroup;
 			children = (
-				2BDBB8ED18BFBAF900A650F0 /* MLChatTableViewController.h */,
-				2BDBB8EE18BFBAF900A650F0 /* MLChatTableViewController.m */,
-				2B2785FC18C50062008B12B9 /* User Profile */,
-				2BB3A65918C7B75E00420B3C /* Chat */,
+				2BDBB8ED18BFBAF900A650F0 /* MLPatronsTableViewController.h */,
+				2BDBB8EE18BFBAF900A650F0 /* MLPatronsTableViewController.m */,
+				2BDBB8E518BE66E400A650F0 /* People */,
 			);
 			name = "Available Users";
+			sourceTree = "<group>";
+		};
+		2BE57AFC1917FFC300D9F3D0 /* Chat Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				2BE57AFD1918013000D9F3D0 /* MLChatTableViewController.h */,
+				2BE57AFE1918013000D9F3D0 /* MLChatTableViewController.m */,
+				2BB3A65918C7B75E00420B3C /* Chat */,
+			);
+			name = "Chat Rooms";
 			sourceTree = "<group>";
 		};
 		2BEE7E7018A0438400744AFC /* Registration */ = {
@@ -384,6 +439,7 @@
 				2B108FC418E66B6B00B165B7 /* MLTableViewCell.xib in Resources */,
 				2B921274189EE5B50041A154 /* InfoPlist.strings in Resources */,
 				2B92127F189EE5B50041A154 /* Images.xcassets in Resources */,
+				2B4F03C2190F3349002A4F8E /* placeholder.jpg in Resources */,
 				2BA04A1B189EE8F1003B2869 /* SocialLubrication.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,17 +492,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BDBB8EF18BFBAF900A650F0 /* MLChatTableViewController.m in Sources */,
+				2BDBB8EF18BFBAF900A650F0 /* MLPatronsTableViewController.m in Sources */,
 				2B92127D189EE5B50041A154 /* SocialLubrication.xcdatamodeld in Sources */,
 				2BEE7E7618A043D600744AFC /* MLRegistrationUserInfoViewController.m in Sources */,
 				2BD3BC5518B5614C00C0414C /* MLUser.m in Sources */,
 				2B921276189EE5B50041A154 /* main.m in Sources */,
 				2B27860618C569E4008B12B9 /* MLProfileViewController.m in Sources */,
+				2B4F31C918FDA20D00B72A1A /* MLCoreLocation.m in Sources */,
+				2B05CD8118FCB30000B97053 /* MLVenue.m in Sources */,
 				2BDBB8E818BE678400A650F0 /* MLPeopleViewController.m in Sources */,
 				2B92127A189EE5B50041A154 /* MLAppDelegate.m in Sources */,
+				2B25795518F203F4009271B5 /* MLChatRoomViewController.m in Sources */,
+				2BE57AFF1918013000D9F3D0 /* MLChatTableViewController.m in Sources */,
 				2BDBB8EB18BE680100A650F0 /* MLInterestViewController.m in Sources */,
-				2BB3A65F18C7B7DC00420B3C /* MLChatViewController.m in Sources */,
 				2BA04A1F189EE957003B2869 /* MLLoginViewController.m in Sources */,
+				2B05CD8618FCB3BA00B97053 /* MLLocationTableViewController.m in Sources */,
 				2B5183F418A17DCB0078CCFD /* MLRegistrationImageViewController.m in Sources */,
 				2B81B85118E5E0A80035EDCC /* MLUserListTableViewCell.m in Sources */,
 			);

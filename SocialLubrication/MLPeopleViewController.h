@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MLPeopleViewControllerDelegate <NSObject>
+
+@required
+-(void)userInviteApproval:(BOOL)userSelection;
+
+@end
+
 @interface MLPeopleViewController : UIViewController
+
+@property (weak, nonatomic) id <MLPeopleViewControllerDelegate> delegate;
+@property (strong, nonatomic) PFUser *selectedUser;
+
 
 @end

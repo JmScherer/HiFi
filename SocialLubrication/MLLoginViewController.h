@@ -10,8 +10,13 @@
 #import "MLUser.h"
 
 
-@interface MLLoginViewController : UIViewController
+@interface MLLoginViewController : UIViewController{
+    
+    IBOutlet UIScrollView *scroller;
+}
 
 @property (strong, nonatomic) MLUser *userObject;
+
+@property (strong, nonatomic) IBOutlet UIButton *awesomeButton;
 
 @end

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MLInterestViewController : UIViewController
+@interface MLInterestViewController : UIViewController{
+    
+    IBOutlet UIScrollView *scroller;
+}
+
+
 
 @end

@@ -11,6 +11,6 @@
 
 @interface MLProfileViewController : UIViewController
 
-@property (strong, nonatomic) PFObject *userProfile;
+@property (strong, nonatomic) PFUser *userProfile;
 
 @end

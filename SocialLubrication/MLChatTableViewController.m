@@ -2,39 +2,25 @@
 //  MLChatTableViewController.m
 //  SocialLubrication
 //
-//  Created by James Scherer on 2/27/14.
+//  Created by James Scherer on 5/5/14.
 //  Copyright (c) 2014 Mazag Labs. All rights reserved.
 //
 
 #import "MLChatTableViewController.h"
-#import "MLProfileViewController.h"
 #import "MLUserListTableViewCell.h"
-
+#import "MLProfileViewController.h"
+#import "MLChatRoomViewController.h"
 
 @interface MLChatTableViewController ()
 
-@property (strong, nonatomic) NSMutableArray *availableUsers;
-@property (strong, nonatomic) NSMutableArray *invitedUsers;
+@property (strong, nonatomic) NSMutableArray *chatRooms;
 @property (strong, nonatomic) NSTimer *userTimer;
-@property (strong, nonatomic) NSArray *createChatRoom;
+
+@property (strong, nonatomic) PFObject *selectedChatRoom;
 
 @end
 
 @implementation MLChatTableViewController
-
--(NSMutableArray *)availableUsers{
-    if(!_availableUsers){
-        _availableUsers = [[NSMutableArray alloc] init];
-    }
-    return _availableUsers;
-}
-
--(NSMutableArray *)invitedUsers{
-    if(!_invitedUsers){
-        _invitedUsers = [[NSMutableArray alloc] init];
-    }
-    return _invitedUsers;
-}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -54,14 +40,26 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self updateUsers];
+    [self updateAvailableChatRooms];
     
-    self.userTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateUsers) userInfo:nil repeats:YES];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    
+    
+    self.userTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateAvailableChatRooms) userInfo:nil repeats:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [self.userTimer invalidate];
+    self.userTimer = nil;
+    //NSLog(@"View Did Disappear Executed");
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,167 +68,117 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)updateUsers{
-    [self updateAvailableUsers];
-    [self checkInvite];
+#pragma mark - Chat room update
+
+-(void)updateAvailableChatRooms{
+    PFQuery *query = [PFQuery queryWithClassName:@"ChatRoom"];
+    [query whereKey:@"user1" equalTo:[PFUser currentUser]];
+    
+    PFQuery *inverseQuery = [PFQuery queryWithClassName:@"ChatRoom"];
+    [inverseQuery whereKey:@"user2" equalTo:[PFUser currentUser]];
+    
+    PFQuery *combinedQuery = [PFQuery orQueryWithSubqueries:@[query, inverseQuery]];
+    [combinedQuery includeKey:@"user1"];
+    [combinedQuery includeKey:@"user2"];
+    
+    [combinedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            [self.chatRooms removeAllObjects];
+            self.chatRooms = [objects mutableCopy];
+            [self.tableView reloadData];
+            //[self checkInvite];
+            NSLog(@"Chat Rooms: %@", self.chatRooms);
+        }
+    }];
+    
 }
 
-
-#pragma mark - Prepare for Segue
+#pragma mark - Chat Room Segue Methods
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    MLProfileViewController *usrProfile = segue.destinationViewController;
-    NSIndexPath *indexPath = sender;
-    usrProfile.userProfile = [self.availableUsers objectAtIndex:indexPath.row];
+    if([segue.destinationViewController isKindOfClass:[MLProfileViewController class]]){
+        
+        MLProfileViewController *usrProfile = segue.destinationViewController;
+        NSIndexPath *indexPath = sender;
+        
+            
+            PFObject *chatUsers = [self.chatRooms objectAtIndex:indexPath.row];
+            PFUser *chatUser;
+            PFUser *currentUser = [PFUser currentUser];
+            PFUser *testUser1 = [chatUsers objectForKey:@"user1"];
+            
+            if([testUser1.objectId isEqual:currentUser.objectId]){
+                chatUser = [chatUsers objectForKey:@"user2"];
+            }
+            else chatUser = [chatUsers objectForKey:@"user1"];
+            
+            usrProfile.userProfile = chatUser;
+        }
+
+    if([segue.destinationViewController isKindOfClass:[MLChatRoomViewController class]]){
+        
+        MLChatRoomViewController *chatVC = segue.destinationViewController;
+        chatVC.chatRoom = self.selectedChatRoom;
+        
+    }
 }
+
+
+-(IBAction)chatFriend:(UIButton*)sender{
+    
+    self.selectedChatRoom = [self.chatRooms objectAtIndex:[sender tag]];
+    
+    [self performSegueWithIdentifier:@"chatTableToChatSegue" sender:[UIButton class]];
+    
+}
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0){ return [self.invitedUsers count]; }
-    else return [self.availableUsers count];
-
+    return [self.chatRooms count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MLUserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userListCell"];
-    if(!cell){
-        [tableView registerNib:[UINib nibWithNibName:@"MLTableViewCell" bundle:nil] forCellReuseIdentifier:@"userListCell"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"userListCell"];
+    [tableView registerNib:[UINib nibWithNibName:@"MLTableViewCell" bundle:nil] forCellReuseIdentifier:@"userListCell"];
+    MLUserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userListCell" forIndexPath:indexPath];
+    [cell.userFunctionButton removeTarget:self action:NULL forControlEvents:UIControlEventAllEvents];
+    
+    PFObject *chatUsers = [self.chatRooms objectAtIndex:indexPath.row];
+    PFUser *chatUser;
+    PFUser *currentUser = [PFUser currentUser];
+    PFUser *testUser1 = [chatUsers objectForKey:@"user1"];
+    
+    if([testUser1.objectId isEqual:currentUser.objectId]){
+        chatUser = [chatUsers objectForKey:@"user2"];
     }
+    else chatUser = [chatUsers objectForKey:@"user1"];
     
-    if(indexPath.section == 0){
-        PFObject *invitedUsers = [self.invitedUsers objectAtIndex:indexPath.row];
-        PFUser *invitedUser = [invitedUsers objectForKey:@"toUser"];
-        
-        PFQuery *inverseQuery = [[PFQuery alloc] initWithClassName:@"Activity"];
-        [inverseQuery whereKey:@"fromUser" equalTo:invitedUser];
-        [inverseQuery whereKey:@"toUser" equalTo:[PFUser currentUser]];
-        [inverseQuery whereKey:@"activity" equalTo:@"invite"];
-
-        [inverseQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            
-            if(!error){
-                
-                self.createChatRoom = [objects mutableCopy];
-                NSLog(@"createChatRoom: %@", self.createChatRoom);
-
-                
-                if([self.createChatRoom count] == 0){
-                    cell.usernameLabel.text = invitedUser.username;
-                    [cell.userFunctionButton setTitle:@"Pending.." forState:UIControlStateNormal];
-                    [cell.userFunctionButton setEnabled:NO];
-                    
-                }
-                else{
-                    cell.usernameLabel.text = invitedUser.username;
-                    [cell.userFunctionButton setTitle:@"Chat" forState:UIControlStateNormal];
-                    [cell.userFunctionButton addTarget:self
-                                                action:@selector(chatFriend:) forControlEvents:UIControlEventTouchUpInside];
-                    [cell.userFunctionButton setEnabled:YES];
-                    }
-                }
-              }];
-        
-}
+    cell.usernameLabel.text = chatUser.username;
+    cell.interestOneLabel.text = [chatUser objectForKey:@"interest1"];
+    cell.interestTwoLabel.text = [chatUser objectForKey:@"interest2"];
+    cell.interestThreeLabel.text = [chatUser objectForKey:@"interest3"];
+    [cell.userFunctionButton setTitle:@"Chat" forState:UIControlStateNormal];
+    [cell.userFunctionButton addTarget:self
+                                action:@selector(chatFriend:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.userFunctionButton setEnabled:YES];
+    [cell.userFunctionButton setTag:indexPath.row];
     
-
-
-
-    
-    if(indexPath.section == 1){
-        PFObject *availableUsers = [self.availableUsers objectAtIndex:indexPath.row];
-        PFUser *availableUser = [availableUsers objectForKey:@"user"];
-        cell.usernameLabel.text = availableUser.username;
-        [cell.userFunctionButton setTitle:@"Invite" forState:UIControlStateNormal];
-        [cell.userFunctionButton addTarget:self action:@selector(inviteFriend:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.userFunctionButton setEnabled:YES];
-        [cell.userFunctionButton setTag:indexPath.row];
-    }
+    // Configure the cell...
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"usersToProfileSegue" sender:indexPath];
-}
-
-#pragma mark - UI Buttons
-
--(IBAction)inviteFriend:(id)sender{
-    
-    UIButton *button = (UIButton *)sender;
-    
-    [button setTitle:@"Pending.." forState:UIControlStateNormal];
-    [button setEnabled:NO];
-    [button removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
-    PFUser *user = [self.availableUsers objectAtIndex:[sender tag]];
-    [self saveInvite:user];
-}
-
--(IBAction)chatFriend:(id)sender{
-    NSLog(@"Open Chatroom");
-}
-
-#pragma mark - Helper Methods
-
--(void)updateAvailableUsers{
-    PFQuery *query = [[PFQuery alloc] initWithClassName:@"Location"];
-    [query includeKey:@"user"];
-    [query whereKey:@"user" notEqualTo:[PFUser currentUser]];
-    [query whereKey:@"location" equalTo:@"Grassroots"];
-
-    PFQuery *activityQuery = [PFQuery queryWithClassName:@"Activity"];
-    [query whereKey:@"user" doesNotMatchKey:@"toUser" inQuery:activityQuery];
-    
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if(!error){
-                [self.availableUsers removeAllObjects];
-                self.availableUsers = [objects mutableCopy];
-                [self.tableView reloadData];
-                //NSLog(@"User List: %@", self.availableUsers);
-            }
-    }];
-}
-
--(void)checkInvite{
-    
-    PFQuery *locationQuery = [[PFQuery alloc] initWithClassName:@"Location"];
-    [locationQuery whereKey:@"location" equalTo:@"Grassroots"];
-    [locationQuery whereKey:@"user" notEqualTo:[PFUser currentUser]];
-    
-    PFQuery *activityQuery = [[PFQuery alloc] initWithClassName:@"Activity"];
-    [activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-    [activityQuery includeKey:@"fromUser"];
-    [activityQuery includeKey:@"toUser"];
-    
-    [locationQuery whereKey:@"activity" matchesKey:@"invite" inQuery:activityQuery];
-    
-    [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error){
-                [self.invitedUsers removeAllObjects];
-                self.invitedUsers = [objects mutableCopy];
-                [self.tableView reloadData];
-                NSLog(@"Invited Users: %@", self.invitedUsers);
-            }
-    }];
-}
-
-
--(void)saveInvite:(PFUser *)user{
-    PFObject *setInvite = [PFObject objectWithClassName:@"Activity"];
-    [setInvite setObject:@"invite" forKey:@"activity"];
-    [setInvite setObject:[PFUser currentUser] forKey:@"fromUser"];
-    [setInvite setObject:user[@"user"] forKey:@"toUser"];
-    [setInvite saveInBackground];
+    [self performSegueWithIdentifier:@"chatToProfileSegue" sender:indexPath];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -253,8 +201,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }

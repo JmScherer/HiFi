@@ -8,11 +8,17 @@
 
 #import "MLInterestViewController.h"
 
-@interface MLInterestViewController ()
+@interface MLInterestViewController () <UITextFieldDelegate, UITextViewDelegate>
 
 //@property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (strong, nonatomic) IBOutlet UITextField *userInterest1;
+@property (strong, nonatomic) IBOutlet UITextField *userInterest2;
+@property (strong, nonatomic) IBOutlet UITextField *userInterest3;
+@property (strong, nonatomic) IBOutlet UITextField *userInterest4;
+@property (strong, nonatomic) IBOutlet UITextView *userTagLine;
 
+@property (strong, nonatomic) PFUser *user;
 
 @end
 
@@ -32,11 +38,26 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    PFUser *user = [PFUser currentUser];
+    [self subscribeToKeyboardEvents:YES];
     
-    NSLog(@"%@", user.username);
+    [scroller setScrollEnabled:YES];
+    scroller.contentSize = CGSizeMake(320, 568);
     
-    self.usernameLabel.text = user.username;
+    self.user = [PFUser currentUser];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [scroller addGestureRecognizer:tap];
+    
+    NSLog(@"%@", self.user.username);
+    
+    self.userInterest1.delegate = self;
+    self.userInterest2.delegate = self;
+    self.userInterest3.delegate = self;
+    self.userInterest4.delegate = self;
+    self.userTagLine.delegate = self;
+
+    
+    self.usernameLabel.text = self.user.username;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +65,116 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [self subscribeToKeyboardEvents:NO];
+}
+
+- (void)subscribeToKeyboardEvents:(BOOL)subscribe{
     
+    if(subscribe){
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardDidShow:)
+                                                     name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillHide:)
+                                                     name:UIKeyboardWillHideNotification object:nil];
+    }else{
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+    
+}
+
+- (void) keyboardDidShow:(NSNotification *)nsNotification {
+    
+    NSDictionary * userInfo = [nsNotification userInfo];
+    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect newFrame = [scroller frame];
+    
+    CGFloat kHeight = kbSize.height;
+    
+    if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
+        kHeight = kbSize.width;
+    }
+    
+    newFrame.size.height -= kHeight;
+    
+    [scroller setFrame:newFrame];
+    
+}
+
+-(void)keyboardWillHide:(NSNotification *)nsNotification {
+    
+    NSDictionary * userInfo = [nsNotification userInfo];
+    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect newFrame = [scroller frame];
+    
+    CGFloat kHeight = kbSize.height;
+    
+    if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
+        kHeight = kbSize.width;
+    }
+    
+    newFrame.size.height += kHeight;
+    
+    // save the content offset before the frame change
+    CGPoint contentOffsetBefore = scroller.contentOffset;
+    
+    [scroller setHidden:YES];
+    
+    // set the new frame
+    [scroller setFrame:newFrame];
+    
+    // get the content offset after the frame change
+    CGPoint contentOffsetAfter =  scroller.contentOffset;
+    
+    // content offset initial state
+    [scroller setContentOffset:contentOffsetBefore];
+    
+    [scroller setHidden:NO];
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         [scroller setContentOffset:contentOffsetAfter];
+                     }
+                     completion:^(BOOL finished){
+                         // do nothing for the time being...
+                     }
+     ];
+    
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.userInterest1 resignFirstResponder];
+    [self.userInterest2 resignFirstResponder];
+    [self.userInterest3 resignFirstResponder];
+    [self.userInterest4 resignFirstResponder];
+    [self.userTagLine resignFirstResponder];
+
+    
+    return YES;
+}
+
+-(void)dismissKeyboard{
+    [self.userInterest1 resignFirstResponder];
+    [self.userInterest2 resignFirstResponder];
+    [self.userInterest3 resignFirstResponder];
+    [self.userInterest4 resignFirstResponder];
+    [self.userTagLine resignFirstResponder];
+}
+
+
+- (IBAction)userSaveSettings:(UIButton *)sender {
+    [self.user setObject:self.userInterest1.text forKey:@"interest1"];
+    [self.user setObject:self.userInterest2.text forKey:@"interest2"];
+    [self.user setObject:self.userInterest3.text forKey:@"interest3"];
+    [self.user setObject:self.userInterest4.text forKey:@"interest4"];
+    [self.user setObject:self.userTagLine.text forKey:@"tagLine"];
+    
+    [self.user saveInBackground];
     
 }
 

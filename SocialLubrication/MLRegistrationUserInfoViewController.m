@@ -41,12 +41,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self subscribeToKeyboardEvents:YES];
+    
+    [scroller setScrollEnabled:YES];
+    scroller.contentSize = CGSizeMake(320, 568);
 	// Do any additional setup after loading the view.
     
     self.navigationController.navigationBar.hidden = NO;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+    [scroller addGestureRecognizer:tap];
     
     self.textFieldUsername.delegate = self;
     self.textFieldPassword.delegate = self;
@@ -59,9 +64,13 @@
     
     [self checkBirthday];
     
+    scroller.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    [self subscribeToKeyboardEvents:NO];
      self.navigationController.navigationBar.hidden = YES;
 }
 
@@ -69,6 +78,82 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)subscribeToKeyboardEvents:(BOOL)subscribe{
+    
+    if(subscribe){
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardDidShow:)
+                                                     name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillHide:)
+                                                     name:UIKeyboardWillHideNotification object:nil];
+    }else{
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+    
+}
+
+- (void) keyboardDidShow:(NSNotification *)nsNotification {
+    
+    NSDictionary * userInfo = [nsNotification userInfo];
+    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect newFrame = [scroller frame];
+    
+    CGFloat kHeight = kbSize.height;
+    
+    if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
+        kHeight = kbSize.width;
+    }
+    
+    newFrame.size.height -= kHeight;
+    
+    [scroller setFrame:newFrame];
+    
+}
+
+-(void)keyboardWillHide:(NSNotification *)nsNotification {
+        
+        NSDictionary * userInfo = [nsNotification userInfo];
+        CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+        
+        CGRect newFrame = [scroller frame];
+        
+        CGFloat kHeight = kbSize.height;
+        
+        if(UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)){
+            kHeight = kbSize.width;
+        }
+        
+        newFrame.size.height += kHeight;
+        
+        // save the content offset before the frame change
+        CGPoint contentOffsetBefore = scroller.contentOffset;
+        
+        [scroller setHidden:YES];
+        
+        // set the new frame
+        [scroller setFrame:newFrame];
+        
+        // get the content offset after the frame change
+        CGPoint contentOffsetAfter =  scroller.contentOffset;
+        
+        // content offset initial state
+        [scroller setContentOffset:contentOffsetBefore];
+        
+        [scroller setHidden:NO];
+        
+        [UIView animateWithDuration:0.25
+                         animations:^{
+                             [scroller setContentOffset:contentOffsetAfter];
+                         }
+                         completion:^(BOOL finished){
+                             // do nothing for the time being...                         
+                         }
+         ];
+        
 }
 
 #pragma mark - Segue Methods
@@ -204,6 +289,9 @@
 }
 
 -(BOOL)checkPasswordMatch{
+    
+    NSLog(@"Password: %@ & Retyped Password: %@", self.textFieldPassword, self.textFieldRetypePassword);
+    
     if([self.textFieldPassword.text isEqualToString:self.textFieldRetypePassword.text]){
     return YES;
 }

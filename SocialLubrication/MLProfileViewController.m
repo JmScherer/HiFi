@@ -12,6 +12,11 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *profileUserNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *profileTagLineLabel;
+@property (strong, nonatomic) IBOutlet UILabel *profileInterest1;
+@property (strong, nonatomic) IBOutlet UILabel *profileInterest2;
+@property (strong, nonatomic) IBOutlet UILabel *profileInterest3;
+@property (strong, nonatomic) IBOutlet UILabel *profileInterest4;
+
 
 @end
 
@@ -31,10 +36,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    PFUser *userProfile = self.userProfile[@"user"];
+    //PFUser *userProfile = self.userProfile[@"user"];
     
-    self.profileUserNameLabel.text = userProfile.username;
-    self.profileTagLineLabel.text = userProfile[@"tagLine"];
+    self.profileUserNameLabel.text = self.userProfile.username;
+    self.profileTagLineLabel.text = self.userProfile[@"tagLine"];
+    self.profileInterest1.text = self.userProfile[@"interest1"];
+    self.profileInterest2.text = self.userProfile[@"interest2"];
+    self.profileInterest3.text = self.userProfile[@"interest3"];
+    self.profileInterest4.text = self.userProfile[@"interest4"];
     
 }
 

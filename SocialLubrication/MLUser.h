@@ -18,4 +18,8 @@
 
 @property (strong, nonatomic) NSData *userPhoto;
 
+@property (strong, nonatomic) NSString *userLocation;
+
++(MLUser*)sharedInstance;
+
 @end

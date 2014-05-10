@@ -31,6 +31,8 @@
     [super viewDidLoad];
     
     self.activityIndicator.hidden = YES;
+    
+    self.userImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
 	// Do any additional setup after loading the view.
     
     
@@ -105,6 +107,10 @@
                             self.activityIndicator.hidden = YES;
                             [self.activityIndicator stopAnimating];
                             [self.navigationController popToRootViewControllerAnimated:YES];
+                            PFObject *userDefaultLocation = [PFObject objectWithClassName:@"Location"];
+                            [userDefaultLocation setObject:[PFUser currentUser] forKey:@"user"];
+                            [userDefaultLocation setObject:@"Home" forKey:@"location"];
+                            [userDefaultLocation saveInBackground];
                         }];
                     }
                 }];
@@ -113,7 +119,5 @@
     }];
 
 }
-
-
 
 @end

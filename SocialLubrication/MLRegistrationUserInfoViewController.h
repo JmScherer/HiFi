@@ -11,11 +11,12 @@
 
 @protocol MLRegistrationUserInfoViewControllerDelegate <NSObject>
 
-
 @end
 
-@interface MLRegistrationUserInfoViewController : UIViewController <MLRegistrationImageViewControllerDelegate>
-
+@interface MLRegistrationUserInfoViewController : UIViewController <MLRegistrationImageViewControllerDelegate>{
+    
+    IBOutlet UIScrollView *scroller;
+}
 @property (weak, nonatomic) id <MLRegistrationUserInfoViewControllerDelegate> delegate;
 
 @end
