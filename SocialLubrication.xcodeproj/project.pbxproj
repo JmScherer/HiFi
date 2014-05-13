@@ -31,6 +31,7 @@
 		2B921289189EE5B50041A154 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B92126D189EE5B50041A154 /* CoreData.framework */; };
 		2B921291189EE5B50041A154 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B92128F189EE5B50041A154 /* InfoPlist.strings */; };
 		2B921293189EE5B50041A154 /* SocialLubricationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B921292189EE5B50041A154 /* SocialLubricationTests.m */; };
+		2B96E95919219D6000DD17A7 /* MLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B96E95819219D6000DD17A7 /* MLSettingsViewController.m */; };
 		2BA04A1B189EE8F1003B2869 /* SocialLubrication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */; };
 		2BA04A1F189EE957003B2869 /* MLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA04A1E189EE957003B2869 /* MLLoginViewController.m */; };
 		2BD3BC5518B5614C00C0414C /* MLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3BC5418B5614C00C0414C /* MLUser.m */; };
@@ -88,6 +89,8 @@
 		2B92128E189EE5B50041A154 /* SocialLubricationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocialLubricationTests-Info.plist"; sourceTree = "<group>"; };
 		2B921290189EE5B50041A154 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B921292189EE5B50041A154 /* SocialLubricationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialLubricationTests.m; sourceTree = "<group>"; };
+		2B96E95719219D6000DD17A7 /* MLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSettingsViewController.h; sourceTree = "<group>"; };
+		2B96E95819219D6000DD17A7 /* MLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSettingsViewController.m; sourceTree = "<group>"; };
 		2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SocialLubrication.storyboard; sourceTree = "<group>"; };
 		2BA04A1D189EE957003B2869 /* MLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLoginViewController.h; sourceTree = "<group>"; };
 		2BA04A1E189EE957003B2869 /* MLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLoginViewController.m; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 				2BDBB8EC18BFBAC700A650F0 /* Available Users */,
 				2BE57AFC1917FFC300D9F3D0 /* Chat Rooms */,
 				2B2785FC18C50062008B12B9 /* User Profile */,
+				2B96E95619219D1900DD17A7 /* Settings */,
 				2B92127E189EE5B50041A154 /* Images.xcassets */,
 				2B92127B189EE5B50041A154 /* SocialLubrication.xcdatamodeld */,
 				2BC9C8FE18AAE6960034C753 /* Helper Classes */,
@@ -264,6 +268,15 @@
 				2B92128F189EE5B50041A154 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B96E95619219D1900DD17A7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2B96E95719219D6000DD17A7 /* MLSettingsViewController.h */,
+				2B96E95819219D6000DD17A7 /* MLSettingsViewController.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		2BA04A1C189EE938003B2869 /* Login */ = {
@@ -500,6 +513,7 @@
 				2B27860618C569E4008B12B9 /* MLProfileViewController.m in Sources */,
 				2B4F31C918FDA20D00B72A1A /* MLCoreLocation.m in Sources */,
 				2B05CD8118FCB30000B97053 /* MLVenue.m in Sources */,
+				2B96E95919219D6000DD17A7 /* MLSettingsViewController.m in Sources */,
 				2BDBB8E818BE678400A650F0 /* MLPeopleViewController.m in Sources */,
 				2B92127A189EE5B50041A154 /* MLAppDelegate.m in Sources */,
 				2B25795518F203F4009271B5 /* MLChatRoomViewController.m in Sources */,

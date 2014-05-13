@@ -38,6 +38,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
+    NSArray *array = [self.navigationController viewControllers];
+    
+    NSLog(@"View controllers: %@", array);
+    
     [self subscribeToKeyboardEvents:YES];
     
     [scroller setScrollEnabled:YES];

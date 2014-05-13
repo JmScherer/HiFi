@@ -48,7 +48,7 @@
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTap:)];
     tap1.cancelsTouchesInView = YES;
     tap1.numberOfTapsRequired = 1;
-
+    
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTap:)];
     tap2.cancelsTouchesInView = YES;
     tap2.numberOfTapsRequired = 1;
@@ -77,22 +77,11 @@
         PFFile *selectedPhoto = selectedUserImage[@"image"];
 
         [selectedPhoto getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            UIImageView *tempUserImage = self.userImageArray[0];
-
-            tempUserImage.userInteractionEnabled = YES;
-            [tempUserImage addGestureRecognizer:self.gestureArray[0]];
-            tempUserImage.image = [UIImage imageWithData:data];
-            tempUserImage.layer.cornerRadius = 5.0;
-            tempUserImage.layer.masksToBounds = YES;
-            tempUserImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
-            tempUserImage.layer.borderWidth = 2.0;
-            [tempUserImage setTag:0];
-            
             PFQuery *imageQuery = [PFQuery queryWithClassName:@"Photo"];
             [imageQuery whereKey:@"user" notEqualTo:self.selectedUser];
             [imageQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 self.userImages = [objects mutableCopy];
-                //[self shuffle:self.userImages];
+                [self shuffle:self.userImages];
                 for(int i = 1; i < 5; i++){
                     PFObject *image = self.userImages[i];
                     PFFile *imageFile = image[@"image"];
@@ -107,6 +96,18 @@
                         tempImage.layer.borderWidth = 2.0;
                         [tempImage setTag:i];
                     }];
+            UIImageView *tempUserImage = self.userImageArray[0];
+
+            tempUserImage.userInteractionEnabled = YES;
+            [tempUserImage addGestureRecognizer:self.gestureArray[0]];
+            tempUserImage.image = [UIImage imageWithData:data];
+            tempUserImage.layer.cornerRadius = 5.0;
+            tempUserImage.layer.masksToBounds = YES;
+            tempUserImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            tempUserImage.layer.borderWidth = 2.0;
+            [tempUserImage setTag:0];
+            
+
                 }
             }];
         }];

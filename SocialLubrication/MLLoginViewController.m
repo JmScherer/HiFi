@@ -227,6 +227,13 @@
     
 }
 
+-(void)logout{
+    
+    NSLog(@"Did this happen?");
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    [PFUser logOut];
+}
 
 
 
