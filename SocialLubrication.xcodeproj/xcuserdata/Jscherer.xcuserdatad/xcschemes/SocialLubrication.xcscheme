@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2B921263189EE5B50041A154"
-               BuildableName = "SocialLubrication.app"
+               BuildableName = "Hifi.app"
                BlueprintName = "SocialLubrication"
                ReferencedContainer = "container:SocialLubrication.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2B921263189EE5B50041A154"
-            BuildableName = "SocialLubrication.app"
+            BuildableName = "Hifi.app"
             BlueprintName = "SocialLubrication"
             ReferencedContainer = "container:SocialLubrication.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2B921263189EE5B50041A154"
-            BuildableName = "SocialLubrication.app"
+            BuildableName = "Hifi.app"
             BlueprintName = "SocialLubrication"
             ReferencedContainer = "container:SocialLubrication.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2B921263189EE5B50041A154"
-            BuildableName = "SocialLubrication.app"
+            BuildableName = "Hifi.app"
             BlueprintName = "SocialLubrication"
             ReferencedContainer = "container:SocialLubrication.xcodeproj">
          </BuildableReference>

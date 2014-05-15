@@ -61,9 +61,15 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    MLUser *tempUser = [MLUser sharedInstance];
+    
+    self.navigationItem.title = tempUser.userLocation;
     
     [self updateUsers];
     
@@ -320,9 +326,7 @@
 
 -(void)userInviteApproval:(BOOL)userSelection{
     NSLog(@"userSelection %hhd", userSelection);
-    
-    
-    
+
     if(userSelection == YES){
     PFQuery *queryForInvite = [PFQuery queryWithClassName:@"Activity"];
     [queryForInvite whereKey:@"fromUser" equalTo:self.selectedUser];

@@ -56,7 +56,6 @@
     self.usernameTextField.text = @"Jscherer";
     self.passwordTextField.text = @"Homehome1";
 
-    scroller.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     
 }
 

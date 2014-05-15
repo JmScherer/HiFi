@@ -63,6 +63,11 @@
 
     
     self.usernameLabel.text = self.user.username;
+    self.userInterest1.text = self.user[@"interest1"];
+    self.userInterest2.text = self.user[@"interest2"];
+    self.userInterest3.text = self.user[@"interest3"];
+    self.userInterest4.text = self.user[@"interest4"];
+    self.userTagLine.text = self.user[@"tagLine"];
 }
 
 - (void)didReceiveMemoryWarning

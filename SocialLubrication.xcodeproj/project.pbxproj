@@ -71,7 +71,7 @@
 		2B5183F318A17DCB0078CCFD /* MLRegistrationImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLRegistrationImageViewController.m; sourceTree = "<group>"; };
 		2B81B84F18E5E0A80035EDCC /* MLUserListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLUserListTableViewCell.h; sourceTree = "<group>"; };
 		2B81B85018E5E0A80035EDCC /* MLUserListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLUserListTableViewCell.m; sourceTree = "<group>"; };
-		2B921264189EE5B50041A154 /* SocialLubrication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLubrication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B921264189EE5B50041A154 /* Hifi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hifi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B921267189EE5B50041A154 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2B921269189EE5B50041A154 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2B92126B189EE5B50041A154 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -163,6 +163,13 @@
 			name = "User Profile";
 			sourceTree = "<group>";
 		};
+		2B419DCA19245C0200D24FCC /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		2B4F31C618FDA15900B72A1A /* Core Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +203,7 @@
 		2B921265189EE5B50041A154 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B921264189EE5B50041A154 /* SocialLubrication.app */,
+				2B921264189EE5B50041A154 /* Hifi.app */,
 				2B921284189EE5B50041A154 /* SocialLubricationTests.xctest */,
 			);
 			name = Products;
@@ -218,6 +225,7 @@
 		2B92126F189EE5B50041A154 /* SocialLubrication */ = {
 			isa = PBXGroup;
 			children = (
+				2B419DCA19245C0200D24FCC /* iPad */,
 				2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */,
 				2B921278189EE5B50041A154 /* MLAppDelegate.h */,
 				2B921279189EE5B50041A154 /* MLAppDelegate.m */,
@@ -390,7 +398,7 @@
 			);
 			name = SocialLubrication;
 			productName = SocialLubrication;
-			productReference = 2B921264189EE5B50041A154 /* SocialLubrication.app */;
+			productReference = 2B921264189EE5B50041A154 /* Hifi.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2B921283189EE5B50041A154 /* SocialLubricationTests */ = {
@@ -421,6 +429,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Mazag Labs";
 				TargetAttributes = {
+					2B921263189EE5B50041A154 = {
+						DevelopmentTeam = 7U8A938C4Z;
+					};
 					2B921283189EE5B50041A154 = {
 						TestTargetID = 2B921263189EE5B50041A154;
 					};
@@ -642,10 +653,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialLubrication/SocialLubrication-Prefix.pch";
 				INFOPLIST_FILE = "SocialLubrication/SocialLubrication-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Hifi;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -656,10 +674,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialLubrication/SocialLubrication-Prefix.pch";
 				INFOPLIST_FILE = "SocialLubrication/SocialLubrication-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = Hifi;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

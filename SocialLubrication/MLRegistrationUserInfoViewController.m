@@ -64,9 +64,7 @@
     [self.genderSegmentSelector setSelectedSegmentIndex:-1];
     
     [self checkBirthday];
-    
-    scroller.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-    
+        
     self.textFieldUsername.text = self.userText;
     
     NSLog(@"Username: %@", self.textFieldUsername.text);
