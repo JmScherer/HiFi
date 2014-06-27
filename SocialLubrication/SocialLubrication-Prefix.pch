@@ -1,0 +1,32 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import <RestKit/RestKit.h>
+
+#define USER_NAME @"username"
+#define USER_GENDER @"gender"
+#define USER_EMAIL @"email"
+#define USER_BIRTHDAY @"birthday"
+#define USER_CREDENTIALS @"credentials"
+#define USER_PASSWORD @"password"
+#define USER_IMAGE @"portrait"
+
+
+#define kCLIENTID @"CWXENT404OQBCHETHTANCWGQJQ5ZHEHUQ3TRJVEBNID1M3B5"
+#define kCLIENTSECRET @"FNTBHQF4WTWW12YU024XMRDAX4PRMIENMZSWFUB3XP5AMW21"
+
+#import <Parse/Parse.h>
+#endif
