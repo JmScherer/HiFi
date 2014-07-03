@@ -10,12 +10,18 @@
 #define COCOAPODS_POD_AVAILABLE_AFNetworking
 #define COCOAPODS_VERSION_MAJOR_AFNetworking 1
 #define COCOAPODS_VERSION_MINOR_AFNetworking 3
-#define COCOAPODS_VERSION_PATCH_AFNetworking 3
+#define COCOAPODS_VERSION_PATCH_AFNetworking 4
+
+// Bolts
+#define COCOAPODS_POD_AVAILABLE_Bolts
+#define COCOAPODS_VERSION_MAJOR_Bolts 1
+#define COCOAPODS_VERSION_MINOR_Bolts 1
+#define COCOAPODS_VERSION_PATCH_Bolts 0
 
 // Facebook-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
-#define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 13
+#define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 15
 #define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 1
 
 // ISO8601DateFormatterValueTransformer
@@ -33,8 +39,8 @@
 // JSQSystemSoundPlayer
 #define COCOAPODS_POD_AVAILABLE_JSQSystemSoundPlayer
 #define COCOAPODS_VERSION_MAJOR_JSQSystemSoundPlayer 1
-#define COCOAPODS_VERSION_MINOR_JSQSystemSoundPlayer 4
-#define COCOAPODS_VERSION_PATCH_JSQSystemSoundPlayer 0
+#define COCOAPODS_VERSION_MINOR_JSQSystemSoundPlayer 5
+#define COCOAPODS_VERSION_PATCH_JSQSystemSoundPlayer 2
 
 // Mixpanel
 #define COCOAPODS_POD_AVAILABLE_Mixpanel

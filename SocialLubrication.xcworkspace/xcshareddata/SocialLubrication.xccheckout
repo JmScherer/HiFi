@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5607F018-E6B4-4BAA-ADE9-3C87E73FBE8C</string>
+	<string>06525F6C-E0D9-4C71-9BC0-26CBDC60B611</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SocialLubrication</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>71CF4CE1-C5B5-4C18-9269-2CB7335F8DA1</key>
-		<string>https://github.com/JmScherer/HiFi.git</string>
+		<key>453397F1-3216-4021-AAD0-A4291BD5D9A2</key>
+		<string>https://github.com/JmScherer/HiFi</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SocialLubrication.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>71CF4CE1-C5B5-4C18-9269-2CB7335F8DA1</key>
+		<key>453397F1-3216-4021-AAD0-A4291BD5D9A2</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/JmScherer/HiFi.git</string>
+	<string>https://github.com/JmScherer/HiFi</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>71CF4CE1-C5B5-4C18-9269-2CB7335F8DA1</string>
+	<string>453397F1-3216-4021-AAD0-A4291BD5D9A2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>71CF4CE1-C5B5-4C18-9269-2CB7335F8DA1</string>
+			<string>453397F1-3216-4021-AAD0-A4291BD5D9A2</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SocialLubrication</string>
+			<string>HiFi-master</string>
 		</dict>
 	</array>
 </dict>

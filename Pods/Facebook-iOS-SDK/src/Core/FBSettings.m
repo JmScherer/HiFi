@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-#import "FBSettings.h"
 #import "FBSettings+Internal.h"
 
 #import <UIKit/UIKit.h>
 
 #import "FBError.h"
+#import "FBInternalSettings.h"
 #import "FBLogger.h"
 #import "FBRequest.h"
 #import "FBSession+Internal.h"
@@ -71,9 +71,28 @@ static NSString *g_defaultUrlSchemeSuffix = nil;
 static NSString *g_facebookDomainPart = nil;
 static NSString *g_resourceBundleName = nil;
 static FBRestrictedTreatment g_restrictedTreatment;
+static BOOL g_enableLegacyGraphAPI = NO;
 
 + (NSString *)sdkVersion {
     return FB_IOS_SDK_VERSION_STRING;
+}
+
++ (BOOL)isPlatformCompatibilityEnabled {
+    return g_enableLegacyGraphAPI;
+}
+
++ (void)enablePlatformCompatibility:(BOOL)enable {
+    if (enable != g_enableLegacyGraphAPI) {
+        g_enableLegacyGraphAPI = enable;
+    }
+}
+
++ (NSString *)platformVersion {
+    if ([[self class] isPlatformCompatibilityEnabled]) {
+        return @"v1.0";
+    } else {
+        return FB_IOS_SDK_TARGET_PLATFORM_VERSION;
+    }
 }
 
 + (NSString *)appVersion {
@@ -316,11 +335,13 @@ static FBRestrictedTreatment g_restrictedTreatment;
         if (!appID) {
             // if the appID is still nil, exit early.
             if (handler) {
+                NSString *failureReasonAndDescription = @"A valid App ID was not supplied or detected.  Please call with a valid App ID or configure the app correctly to include FB App ID.";
                 handler(
                         nil,
                         [NSError errorWithDomain:FacebookSDKDomain
                                             code:FBErrorPublishInstallResponse
-                                        userInfo:@{ NSLocalizedDescriptionKey : @"A valid App ID was not supplied or detected.  Please call with a valid App ID or configure the app correctly to include FB App ID."}]
+                                        userInfo:@{NSLocalizedFailureReasonErrorKey : failureReasonAndDescription,
+                                                   NSLocalizedDescriptionKey : failureReasonAndDescription}]
                         );
             }
             return;
@@ -353,11 +374,13 @@ static FBRestrictedTreatment g_restrictedTreatment;
 
         if (!(attributionID || advertiserID)) {
             if (handler) {
+                NSString *failureReasonAndDescription = @"A valid attribution ID or advertiser ID was not found.  Publishing install when neither of them is present is a no-op.";
                 handler(
                         nil,
                         [NSError errorWithDomain:FacebookSDKDomain
                                             code:FBErrorPublishInstallResponse
-                                        userInfo:@{ NSLocalizedDescriptionKey : @"A valid attribution ID or advertiser ID was not found.  Publishing install when neither of them is present is a no-op."}]
+                                        userInfo:@{NSLocalizedFailureReasonErrorKey : failureReasonAndDescription,
+                                                   NSLocalizedDescriptionKey : failureReasonAndDescription}]
                         );
             }
             return;
@@ -403,7 +426,7 @@ static FBRestrictedTreatment g_restrictedTreatment;
                                            if (advertiserID) {
                                                [installActivity setObject:advertiserID forKey:@"advertiser_id"];
                                            }
-                                           [FBUtility updateParametersWithEventUsageLimitsAndBundleInfo:installActivity];
+                                           [FBUtility updateParametersWithEventUsageLimitsAndBundleInfo:installActivity accessAdvertisingTrackingStatus:YES];
 
                                            [installActivity setObject:[NSNumber numberWithBool:isAutoPublish].stringValue forKey:@"auto_publish"];
 
@@ -416,11 +439,13 @@ static FBRestrictedTreatment g_restrictedTreatment;
                                            [defaults synchronize];
 
                                            if (handler) {
+                                               NSString *failureReasonAndDescription = @"The application has not enabled install insights.  To turn this on, go to developers.facebook.com and enable install insights for the app.";
                                                handler(
                                                        nil,
                                                        [NSError errorWithDomain:FacebookSDKDomain
                                                                            code:FBErrorPublishInstallResponse
-                                                                       userInfo:@{ NSLocalizedDescriptionKey : @"The application has not enabled install insights.  To turn this on, go to developers.facebook.com and enable install insights for the app."}]
+                                                                       userInfo:@{ NSLocalizedFailureReasonErrorKey : failureReasonAndDescription,
+                                                                                   NSLocalizedDescriptionKey : failureReasonAndDescription}]
                                                        );
                                            }
                                        }
@@ -432,7 +457,8 @@ static FBRestrictedTreatment g_restrictedTreatment;
                                                    nil,
                                                    [NSError errorWithDomain:FacebookSDKDomain
                                                                        code:FBErrorPublishInstallResponse
-                                                                   userInfo:@{ NSLocalizedDescriptionKey : errorMessage}]
+                                                                   userInfo:@{ NSLocalizedFailureReasonErrorKey : errorMessage,
+                                                                               NSLocalizedDescriptionKey : errorMessage}]
                                                    );
                                        }
 
@@ -447,7 +473,8 @@ static FBRestrictedTreatment g_restrictedTreatment;
                     nil,
                     [NSError errorWithDomain:FacebookSDKDomain
                                         code:FBErrorPublishInstallResponse
-                                    userInfo:@{ NSLocalizedDescriptionKey : errorMessage}]
+                                    userInfo:@{ NSLocalizedFailureReasonErrorKey : errorMessage,
+                                                NSLocalizedDescriptionKey : errorMessage}]
                     );
         }
     }
