@@ -18,10 +18,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A7085B5E2EB442DA619E097"
-               BuildableName = "libPods-Mixpanel.a"
-               BlueprintName = "Pods-Mixpanel"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "2B921263189EE5B50041A154"
+               BuildableName = "Hifi.app"
+               BlueprintName = "SocialLubrication"
+               ReferencedContainer = "container:SocialLubrication.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,7 +32,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2B921283189EE5B50041A154"
+               BuildableName = "SocialLubricationTests.xctest"
+               BlueprintName = "SocialLubricationTests"
+               ReferencedContainer = "container:SocialLubrication.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2B921263189EE5B50041A154"
+            BuildableName = "Hifi.app"
+            BlueprintName = "SocialLubrication"
+            ReferencedContainer = "container:SocialLubrication.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -43,6 +62,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2B921263189EE5B50041A154"
+            BuildableName = "Hifi.app"
+            BlueprintName = "SocialLubrication"
+            ReferencedContainer = "container:SocialLubrication.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -52,6 +80,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2B921263189EE5B50041A154"
+            BuildableName = "Hifi.app"
+            BlueprintName = "SocialLubrication"
+            ReferencedContainer = "container:SocialLubrication.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
