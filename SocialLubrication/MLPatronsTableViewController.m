@@ -284,8 +284,11 @@
             if([objects count] == 0){
                 PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
                 [chatroom setObject:[PFUser currentUser] forKey:@"user1"];
+                [chatroom setObject:@NO forKey:@"user1Avatar"];
                 [chatroom setObject:user forKey:@"user2"];
+                [chatroom setObject:@NO forKey:@"user2Avatar"];
                 [chatroom saveInBackground];
+                
             }
         }
     }];

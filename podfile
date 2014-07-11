@@ -1,6 +1,6 @@
 platform :ios, '7.0'
 
 pod 'Parse'
-pod 'JSMessagesViewController'
+pod 'JSQMessagesViewController'
 pod 'Mixpanel'
 pod 'RestKit'

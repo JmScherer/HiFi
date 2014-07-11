@@ -7,6 +7,7 @@
 //
 
 #import "MLUserListTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MLUserListTableViewCell
 
@@ -23,6 +24,8 @@
         // Initialization code
     }
     return self;
+    
+    
 }
 
 - (void)awakeFromNib
@@ -35,6 +38,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+    
+//    _userFunctionButton.layer.borderColor = [UIColor blueColor].CGColor;
+//    _userFunctionButton.layer.borderWidth = 1.0;
+//    _userFunctionButton.layer.cornerRadius = 5;
 }
+
+
 
 @end

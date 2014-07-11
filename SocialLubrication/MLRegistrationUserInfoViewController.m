@@ -68,8 +68,9 @@
     self.textFieldUsername.text = self.userText;
     
     NSLog(@"Username: %@", self.textFieldUsername.text);
-
     
+
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -361,5 +362,9 @@
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+
+
+
 
 @end

@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *createAccountButton;
 @property (strong, nonatomic) IBOutlet UIButton *signinButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 
 @end
 
@@ -56,6 +58,23 @@
     self.usernameTextField.text = @"Jscherer";
     self.passwordTextField.text = @"Homehome1";
 
+    int x = [[UIScreen mainScreen] bounds].size.width;
+    int y = [[UIScreen mainScreen] bounds].size.height;
+    
+    BOOL isIPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
+    BOOL isIPhone5 = isIPhone && ([[UIScreen mainScreen] bounds].size.height > 480.0);
+    if (isIPhone5) {
+        self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.backgroundImageView.image = [UIImage imageNamed:@"iphone5_register_screen.png"];
+    } else {
+        self.backgroundImageView.frame = CGRectMake(0, 0, x, y);
+        self.backgroundImageView.image = [UIImage imageNamed:@"iphone4_register_screen_2.png"];
+    }
+    
+//    self.signinButton.layer.borderWidth = 1.0;
+//    self.signinButton.layer.cornerRadius = 5;
+//    self.signinButton.layer.borderColor = [UIColor blackColor].CGColor;
+    
     
 }
 
@@ -219,11 +238,8 @@
 #pragma mark - MLRegistrationDelegate
 
 - (IBAction)awesomeButton:(UIButton *)sender {
-    
     self.usernameTextField.text = @"Awesome";
     self.passwordTextField.text = @"Awesome";
-    
-    
 }
 
 @end

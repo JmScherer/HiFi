@@ -25,8 +25,8 @@
 #import "Network.h"
 #import "Support.h"
 
-#ifdef _COREDATADEFINES_H
-#import "CoreData.h"
+#if __has_include("RKCoreData.h")
+#import "RKCoreData.h"
 #endif
 
 /**

@@ -450,11 +450,11 @@ third-party archives.
    limitations under the License.
 
 
-## JSMessagesViewController
+## JSQMessagesViewController
 
 
 MIT License
-Copyright (c) 2013 Jesse Squires
+Copyright (c) 2014 Jesse Squires
 
 http://www.hexedbits.com
 

@@ -7,8 +7,10 @@
 //
 
 #import "MLSettingsViewController.h"
+#import "MLUser.h"
 
 @interface MLSettingsViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *userPhotoImageView;
 
 @end
 
@@ -27,6 +29,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    PFQuery *userImage = [PFQuery queryWithClassName:@"Photo"];
+    [userImage whereKey:@"user" equalTo:[PFUser currentUser]];
+    
+    [userImage getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
+        PFFile *imageFile = object[@"image"];
+        
+        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            self.userPhotoImageView.image = [UIImage imageWithData:data];
+        }];
+        
+    }];
+
+
+    
     
 }
 
@@ -46,6 +63,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)setUserImage:(UIButton *)sender {
+}
+
 
 
 

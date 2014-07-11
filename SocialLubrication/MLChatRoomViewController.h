@@ -6,10 +6,17 @@
 //  Copyright (c) 2014 Mazag Labs. All rights reserved.
 //
 
-#import "JSMessagesViewController.h"
+#import "JSQMessages.h"
+#import "JSQSystemSoundPlayer.h"
 
-@interface MLChatRoomViewController : JSMessagesViewController <JSMessagesViewDataSource, JSMessagesViewDelegate>
+@interface MLChatRoomViewController : JSQMessagesViewController
+
+
+@property (copy, nonatomic) NSDictionary *avatars;
 
 @property (strong, nonatomic) PFObject *chatRoom;
+
+@property (strong, nonatomic) UIImageView *outgoingBubbleImageView;
+@property (strong, nonatomic) UIImageView *incomingBubbleImageView;
 
 @end

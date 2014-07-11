@@ -481,7 +481,7 @@ third-party archives.
 			<key>FooterText</key>
 			<string>
 MIT License
-Copyright (c) 2013 Jesse Squires
+Copyright (c) 2014 Jesse Squires
 
 http://www.hexedbits.com
 
@@ -501,7 +501,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTI
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </string>
 			<key>Title</key>
-			<string>JSMessagesViewController</string>
+			<string>JSQMessagesViewController</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

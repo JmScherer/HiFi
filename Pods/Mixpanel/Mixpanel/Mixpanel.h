@@ -211,6 +211,24 @@
 
 /*!
  @method
+ 
+ @abstract
+ Initializes a singleton instance of the API, uses it to track launchOptions information,
+ and then returns it.
+ 
+ @discussion
+ This is the preferred method for creating a sharedInstance with a mixpanel
+ like above. With the launchOptions parameter, Mixpanel can track referral
+ information created by push notifications.
+ 
+ @param apiToken        your project token
+ @param launchOptions   your application delegate's launchOptions
+ 
+ */
++ (Mixpanel *)sharedInstanceWithToken:(NSString *)apiToken launchOptions:(NSDictionary *)launchOptions;
+
+/*!
+ @method
 
  @abstract
  Returns the previously instantiated singleton instance of the API.
@@ -234,6 +252,22 @@
  project, consider using <code>sharedInstanceWithToken:</code>.
 
  @param apiToken        your project token
+ @param launchOptions   optional app delegate launchOptions
+ @param flushInterval   interval to run background flushing
+ */
+- (instancetype)initWithToken:(NSString *)apiToken launchOptions:(NSDictionary *)launchOptions andFlushInterval:(NSUInteger)flushInterval;
+
+/*!
+ @method
+ 
+ @abstract
+ Initializes an instance of the API with the given project token.
+ 
+ @discussion
+ Supports for the old initWithToken method format but really just passes
+ launchOptions to the above method as nil.
+ 
+ @param apiToken        your project token
  @param flushInterval   interval to run background flushing
  */
 - (instancetype)initWithToken:(NSString *)apiToken andFlushInterval:(NSUInteger)flushInterval;
@@ -245,14 +279,24 @@
  Sets the distinct ID of the current user.
 
  @discussion
- By default, Mixpanel will set the distinct ID to the device's iOS ID for
- Advertising (IFA). The IFA depends on the the Ad Support framework, which is
- only available in iOS 6 and later. If you do not want to use the IFA, you can
- define the <code>MIXPANEL_NO_IFA</code> preprocessor flag in your build settings and we will
- use the <code>identifierForVendor</code> property on <code>UIDevice</code> instead.
+ As of version 2.3.1, Mixpanel will choose a default distinct ID based on
+ whether you are using the AdSupport.framework or not.
 
- If we are unable to get an IFA or identifierForVendor, we will fall back to
- generating a persistent UUID.
+ If you are not using the AdSupport Framework (iAds), then we use the
+ <code>[UIDevice currentDevice].identifierForVendor</code> (IFV) string as the
+ default distinct ID.  This ID will identify a user across all apps by the same
+ vendor, but cannot be used to link the same user across apps from different
+ vendors.
+
+ If you are showing iAds in your application, you are allowed use the iOS ID
+ for Advertising (IFA) to identify users. If you have this framework in your
+ app, Mixpanel will use the IFA as the default distinct ID. If you have
+ AdSupport installed but still don't want to use the IFA, you can define the
+ <code>MIXPANEL_NO_IFA</code> preprocessor flag in your build settings, and
+ Mixpanel will use the IFV as the default distinct ID.
+
+ If we are unable to get an IFA or IFV, we will fall back to generating a
+ random persistent UUID.
 
  For tracking events, you do not need to call <code>identify:</code> if you
  want to use the default.  However, <b>Mixpanel People always requires an
@@ -296,6 +340,24 @@
  @param properties      properties dictionary
  */
 - (void)track:(NSString *)event properties:(NSDictionary *)properties;
+
+
+/*!
+ @method
+ 
+ @abstract
+ Track a push notification using its payload sent from Mixpanel.
+ 
+ @discussion
+ To simplify user interaction tracking and a/b testing, Mixpanel
+ automatically sends IDs for the relevant notification and a/b variants
+ of each push. This method parses the standard payload and queues a
+ track call using this information.
+ 
+ @param userInfo         remote notification payload dictionary
+ */
+- (void)trackPushNotification:(NSDictionary *)userInfo;
+
 
 /*!
  @method
@@ -685,6 +747,7 @@
  revenue analytics to see which products are generating the most revenue.
  */
 - (void)trackCharge:(NSNumber *)amount withProperties:(NSDictionary *)properties;
+
 
 /*!
  @method

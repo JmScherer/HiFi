@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B02E03C196F02D60078F3A4 /* iphone4_register_screen_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02E03A196F02D60078F3A4 /* iphone4_register_screen_2.png */; };
+		2B02E03D196F02D60078F3A4 /* iphone5_register_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02E03B196F02D60078F3A4 /* iphone5_register_screen.png */; };
+		2B02E03F196F0C790078F3A4 /* hifi_logo_text_120pt_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02E03E196F0C790078F3A4 /* hifi_logo_text_120pt_white.png */; };
 		2B05CD8118FCB30000B97053 /* MLVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B05CD8018FCB30000B97053 /* MLVenue.m */; };
 		2B05CD8618FCB3BA00B97053 /* MLLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B05CD8518FCB3BA00B97053 /* MLLocationTableViewController.m */; };
 		2B108FC418E66B6B00B165B7 /* MLTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B108FC318E66B6B00B165B7 /* MLTableViewCell.xib */; };
@@ -16,9 +19,7 @@
 		2B4F31C918FDA20D00B72A1A /* MLCoreLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F31C818FDA20D00B72A1A /* MLCoreLocation.m */; };
 		2B5183F418A17DCB0078CCFD /* MLRegistrationImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5183F318A17DCB0078CCFD /* MLRegistrationImageViewController.m */; };
 		2B81B85118E5E0A80035EDCC /* MLUserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B81B85018E5E0A80035EDCC /* MLUserListTableViewCell.m */; };
-		2B921268189EE5B50041A154 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B921267189EE5B50041A154 /* Foundation.framework */; };
 		2B92126A189EE5B50041A154 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B921269189EE5B50041A154 /* CoreGraphics.framework */; };
-		2B92126C189EE5B50041A154 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B92126B189EE5B50041A154 /* UIKit.framework */; };
 		2B92126E189EE5B50041A154 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B92126D189EE5B50041A154 /* CoreData.framework */; };
 		2B921274189EE5B50041A154 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B921272189EE5B50041A154 /* InfoPlist.strings */; };
 		2B921276189EE5B50041A154 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B921275189EE5B50041A154 /* main.m */; };
@@ -32,6 +33,9 @@
 		2B921291189EE5B50041A154 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B92128F189EE5B50041A154 /* InfoPlist.strings */; };
 		2B921293189EE5B50041A154 /* SocialLubricationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B921292189EE5B50041A154 /* SocialLubricationTests.m */; };
 		2B96E95919219D6000DD17A7 /* MLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B96E95819219D6000DD17A7 /* MLSettingsViewController.m */; };
+		2B99A9C9196DE04000336AD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B921267189EE5B50041A154 /* Foundation.framework */; };
+		2B99A9CB196DE04700336AD7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B99A9CA196DE04700336AD7 /* CFNetwork.framework */; };
+		2B99A9CC196DE07500336AD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B92126B189EE5B50041A154 /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2BA04A1B189EE8F1003B2869 /* SocialLubrication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */; };
 		2BA04A1F189EE957003B2869 /* MLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA04A1E189EE957003B2869 /* MLLoginViewController.m */; };
 		2BD3BC5518B5614C00C0414C /* MLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3BC5418B5614C00C0414C /* MLUser.m */; };
@@ -55,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		21E8D6AF7B5E4A2C9E980427 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2B02E03A196F02D60078F3A4 /* iphone4_register_screen_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone4_register_screen_2.png; path = "../../../iOS Materials/HiFi Image Assets/iphone4_register_screen_2.png"; sourceTree = "<group>"; };
+		2B02E03B196F02D60078F3A4 /* iphone5_register_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone5_register_screen.png; path = "../../../iOS Materials/HiFi Image Assets/iphone5_register_screen.png"; sourceTree = "<group>"; };
+		2B02E03E196F0C790078F3A4 /* hifi_logo_text_120pt_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hifi_logo_text_120pt_white.png; path = "../../../iOS Materials/HiFi Image Assets/hifi_logo_text_120pt_white.png"; sourceTree = "<group>"; };
 		2B05CD7F18FCB30000B97053 /* MLVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLVenue.h; sourceTree = "<group>"; };
 		2B05CD8018FCB30000B97053 /* MLVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLVenue.m; sourceTree = "<group>"; };
 		2B05CD8418FCB3BA00B97053 /* MLLocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLocationTableViewController.h; sourceTree = "<group>"; };
@@ -91,6 +98,7 @@
 		2B921292189EE5B50041A154 /* SocialLubricationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialLubricationTests.m; sourceTree = "<group>"; };
 		2B96E95719219D6000DD17A7 /* MLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSettingsViewController.h; sourceTree = "<group>"; };
 		2B96E95819219D6000DD17A7 /* MLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSettingsViewController.m; sourceTree = "<group>"; };
+		2B99A9CA196DE04700336AD7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2BA04A1A189EE8F1003B2869 /* SocialLubrication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SocialLubrication.storyboard; sourceTree = "<group>"; };
 		2BA04A1D189EE957003B2869 /* MLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLoginViewController.h; sourceTree = "<group>"; };
 		2BA04A1E189EE957003B2869 /* MLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLoginViewController.m; sourceTree = "<group>"; };
@@ -114,10 +122,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B99A9CC196DE07500336AD7 /* UIKit.framework in Frameworks */,
+				2B99A9C9196DE04000336AD7 /* Foundation.framework in Frameworks */,
+				2B99A9CB196DE04700336AD7 /* CFNetwork.framework in Frameworks */,
 				2B92126A189EE5B50041A154 /* CoreGraphics.framework in Frameworks */,
 				2B92126E189EE5B50041A154 /* CoreData.framework in Frameworks */,
-				2B92126C189EE5B50041A154 /* UIKit.framework in Frameworks */,
-				2B921268189EE5B50041A154 /* Foundation.framework in Frameworks */,
 				45A4E92641384226AFC21BD8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +221,7 @@
 		2B921266189EE5B50041A154 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B99A9CA196DE04700336AD7 /* CFNetwork.framework */,
 				2B921267189EE5B50041A154 /* Foundation.framework */,
 				2B921269189EE5B50041A154 /* CoreGraphics.framework */,
 				2B92126B189EE5B50041A154 /* UIKit.framework */,
@@ -248,6 +258,9 @@
 		2B921270189EE5B50041A154 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2B02E03E196F0C790078F3A4 /* hifi_logo_text_120pt_white.png */,
+				2B02E03A196F02D60078F3A4 /* iphone4_register_screen_2.png */,
+				2B02E03B196F02D60078F3A4 /* iphone5_register_screen.png */,
 				2B4F03C1190F3349002A4F8E /* placeholder.jpg */,
 				2B4F31C618FDA15900B72A1A /* Core Location */,
 				2B05CD8218FCB30900B97053 /* Foursquare */,
@@ -461,9 +474,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B108FC418E66B6B00B165B7 /* MLTableViewCell.xib in Resources */,
+				2B02E03C196F02D60078F3A4 /* iphone4_register_screen_2.png in Resources */,
 				2B921274189EE5B50041A154 /* InfoPlist.strings in Resources */,
+				2B02E03F196F0C790078F3A4 /* hifi_logo_text_120pt_white.png in Resources */,
 				2B92127F189EE5B50041A154 /* Images.xcassets in Resources */,
 				2B4F03C2190F3349002A4F8E /* placeholder.jpg in Resources */,
+				2B02E03D196F02D60078F3A4 /* iphone5_register_screen.png in Resources */,
 				2BA04A1B189EE8F1003B2869 /* SocialLubrication.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,7 +675,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialLubrication/SocialLubrication-Prefix.pch";
 				INFOPLIST_FILE = "SocialLubrication/SocialLubrication-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Hifi;
 				SDKROOT = iphoneos;
@@ -678,7 +694,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialLubrication/SocialLubrication-Prefix.pch";
 				INFOPLIST_FILE = "SocialLubrication/SocialLubrication-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = Hifi;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -11,7 +11,7 @@
 @interface MLInterestViewController () <UITextFieldDelegate, UITextViewDelegate>
 
 //@property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
+
 @property (strong, nonatomic) IBOutlet UITextField *userInterest1;
 @property (strong, nonatomic) IBOutlet UITextField *userInterest2;
 @property (strong, nonatomic) IBOutlet UITextField *userInterest3;
@@ -62,7 +62,7 @@
     self.userTagLine.delegate = self;
 
     
-    self.usernameLabel.text = self.user.username;
+    self.navigationItem.title = self.user.username;
     self.userInterest1.text = self.user[@"interest1"];
     self.userInterest2.text = self.user[@"interest2"];
     self.userInterest3.text = self.user[@"interest3"];
