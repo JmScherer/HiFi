@@ -163,9 +163,14 @@
     else chatUser = [chatUsers objectForKey:@"user1"];
     
     cell.usernameLabel.text = chatUser.username;
-    cell.interestOneLabel.text = [chatUser objectForKey:@"interest1"];
-    cell.interestTwoLabel.text = [chatUser objectForKey:@"interest2"];
-    cell.interestThreeLabel.text = [chatUser objectForKey:@"interest3"];
+    
+    NSString *tmpInterest = [NSString stringWithFormat:@"%@, %@, %@", [chatUser objectForKey:@"interest1"], [chatUser objectForKey:@"interest2"], [chatUser objectForKey:@"interest3"]];
+    
+    cell.interestOneLabel.text = tmpInterest;
+    
+//    cell.interestOneLabel.text = [chatUser objectForKey:@"interest1"];
+//    cell.interestTwoLabel.text = [chatUser objectForKey:@"interest2"];
+//    cell.interestThreeLabel.text = [chatUser objectForKey:@"interest3"];
     [cell.userFunctionButton setTitle:@"Chat" forState:UIControlStateNormal];
     [cell.userFunctionButton addTarget:self
                                 action:@selector(chatFriend:) forControlEvents:UIControlEventTouchUpInside];

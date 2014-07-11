@@ -13,8 +13,6 @@
 
 @synthesize usernameLabel = _usernameLabel;
 @synthesize interestOneLabel = _interestOneLabel;
-@synthesize interestTwoLabel = _interestTwoLabel;
-@synthesize interestThreeLabel = _interestThreeLabel;
 @synthesize userFunctionButton = _userFunctionButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

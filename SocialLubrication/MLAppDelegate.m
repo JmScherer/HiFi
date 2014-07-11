@@ -18,6 +18,11 @@
 {
     [Parse setApplicationId:@"ozRs7HxMlhKB0MiRn65SUOXtLPzhnSPWdUSKiEWy" clientKey:@"l0vtMDu6RvgxQhtWlAVXCD3HEtGxABHjg4Syetyk"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:241.0/255.0f green:90.0/255.0f blue:41/255.0f alpha:1.0f]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:241/255.0 green:90/255.0 blue:41/255.0 alpha:1.0], NSFontAttributeName : [UIFont fontWithName:@"Euphemia UCAS" size:20.0]}];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:241.0/255.0f green:90.0/255.0f blue:41/255.0f alpha:1.0f]];
     return YES;
 }
 

@@ -258,6 +258,7 @@
 		2B921270189EE5B50041A154 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2BD31BA3197061BF00B57A10 /* Fonts */,
 				2B02E03E196F0C790078F3A4 /* hifi_logo_text_120pt_white.png */,
 				2B02E03A196F02D60078F3A4 /* iphone4_register_screen_2.png */,
 				2B02E03B196F02D60078F3A4 /* iphone5_register_screen.png */,
@@ -325,6 +326,13 @@
 				2BD3BC5418B5614C00C0414C /* MLUser.m */,
 			);
 			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		2BD31BA3197061BF00B57A10 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		2BDBB8E518BE66E400A650F0 /* People */ = {

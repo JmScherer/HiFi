@@ -170,9 +170,11 @@
                 
                 if([self.checkChat count] == 0){
                     cell.usernameLabel.text = invitedUser.username;
-                    cell.interestOneLabel.text = [invitedUser objectForKey:@"interest1"];
-                    cell.interestTwoLabel.text = [invitedUser objectForKey:@"interest2"];
-                    cell.interestThreeLabel.text = [invitedUser objectForKey:@"interest3"];
+                    
+                    NSString *tmpInterest = [NSString stringWithFormat:@"%@, %@, %@", [invitedUser objectForKey:@"interest1"], [invitedUser objectForKey:@"interest2"], [invitedUser objectForKey:@"interest3"]];
+                    
+                    cell.interestOneLabel.text = tmpInterest;
+                    
                     [cell.userFunctionButton setTitle:@"Pending.." forState:UIControlStateNormal];
                     [cell.userFunctionButton setEnabled:NO];
                 }
@@ -188,10 +190,13 @@
     if(indexPath.section == 1){
         PFObject *availableUsers = [self.availableUsers objectAtIndex:indexPath.row];
         PFUser *availableUser = [availableUsers objectForKey:@"user"];
+        
+        NSString *tmpInterest = [NSString stringWithFormat:@"%@, %@, %@", [availableUser objectForKey:@"interest1"], [availableUser objectForKey:@"interest2"], [availableUser objectForKey:@"interest3"]];
+        
         cell.usernameLabel.text = availableUser.username;
-        cell.interestOneLabel.text = [availableUser objectForKey:@"interest1"];
-        cell.interestTwoLabel.text = [availableUser objectForKey:@"interest2"];
-        cell.interestThreeLabel.text = [availableUser objectForKey:@"interest3"];
+        
+        cell.interestOneLabel.text = tmpInterest;
+        
         [cell.userFunctionButton setTitle:@"Invite" forState:UIControlStateNormal];
         [cell.userFunctionButton addTarget:self action:@selector(inviteFriend:) forControlEvents:UIControlEventTouchUpInside];
         [cell.userFunctionButton setEnabled:YES];

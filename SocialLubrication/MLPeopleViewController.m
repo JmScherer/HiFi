@@ -141,8 +141,8 @@
         }
         else self.correctUser = NO;
         }
-    
-    view.layer.borderColor = [UIColor blueColor].CGColor;
+        view.layer.borderWidth = 2.0;
+    view.layer.borderColor = [UIColor colorWithRed:241.0/255.0f green:90.0/255.0f blue:41.0/255.0f alpha:1.0f].CGColor;
     }
     else{
         if(view.tag == 0){

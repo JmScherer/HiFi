@@ -12,8 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *interestOneLabel;
-@property (strong, nonatomic) IBOutlet UILabel *interestTwoLabel;
-@property (strong, nonatomic) IBOutlet UILabel *interestThreeLabel;
+
 
 
 @property (strong, nonatomic) IBOutlet UIButton *userFunctionButton;
