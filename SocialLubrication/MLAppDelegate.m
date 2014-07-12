@@ -19,6 +19,16 @@
     [Parse setApplicationId:@"ozRs7HxMlhKB0MiRn65SUOXtLPzhnSPWdUSKiEWy" clientKey:@"l0vtMDu6RvgxQhtWlAVXCD3HEtGxABHjg4Syetyk"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+//    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+//    UITabBar *tabBar = tabBarController.tabBar;
+    
+//    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+//    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+//    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+//    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    //[tabBarItem1 setImage:[[UIImage imageNamed:@"placeholder.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:241.0/255.0f green:90.0/255.0f blue:41/255.0f alpha:1.0f]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:241/255.0 green:90/255.0 blue:41/255.0 alpha:1.0], NSFontAttributeName : [UIFont fontWithName:@"Euphemia UCAS" size:20.0]}];

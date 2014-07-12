@@ -693,10 +693,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-1534" y="-217"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="6ZJ-Wj-0Dq">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rwg-s6-ZVc" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rwg-s6-ZVc" customClass="MLTabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ogu-yo-1wP"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -705,6 +705,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="customTabBarItem" destination="D54-gv-XhD" id="oo0-v3-LpC"/>
                         <segue destination="cgW-OW-J54" kind="relationship" relationship="viewControllers" id="iAa-bc-7fj"/>
                         <segue destination="GxD-i7-84u" kind="relationship" relationship="viewControllers" id="UMG-DA-3Vs"/>
                         <segue destination="Y5x-E0-1d2" kind="relationship" relationship="viewControllers" id="KcN-FS-2Hf"/>
@@ -820,8 +821,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="0So-F5-Pht"/>
         <segue reference="OZY-SJ-v6T"/>
-        <segue reference="hBo-Hg-iWc"/>
-        <segue reference="Fnq-cM-EBh"/>
+        <segue reference="XpN-Cb-Dqa"/>
     </inferredMetricsTieBreakers>
 </document>
