@@ -30,6 +30,22 @@
     // Do any additional setup after loading the view.
     
     UITabBarItem *item0 = [self.customTabBarItem.items objectAtIndex:0];
+    UITabBarItem *item1 = [self.customTabBarItem.items objectAtIndex:1];
+    UITabBarItem *item2 = [self.customTabBarItem.items objectAtIndex:2];
+    UITabBarItem *item3 = [self.customTabBarItem.items objectAtIndex:3];
+
+    [item0 setImage:[[UIImage imageNamed:@"interests_unactivated.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item0 setSelectedImage:[[UIImage imageNamed:@"interests_activated.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [item1 setImage:[[UIImage imageNamed:@"whosaround_unactivated.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item1 setSelectedImage:[[UIImage imageNamed:@"whosaround_activated.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [item2 setImage:[[UIImage imageNamed:@"invite_unactivated.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item2 setSelectedImage:[[UIImage imageNamed:@"invite_activated.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [item3 setImage:[[UIImage imageNamed:@"chat_unactivated.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [item3 setSelectedImage:[[UIImage imageNamed:@"chat_activated.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
 }
 
 - (void)didReceiveMemoryWarning

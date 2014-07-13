@@ -43,6 +43,26 @@
 		2BDBB8E818BE678400A650F0 /* MLPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8E718BE678400A650F0 /* MLPeopleViewController.m */; };
 		2BDBB8EB18BE680100A650F0 /* MLInterestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8EA18BE680100A650F0 /* MLInterestViewController.m */; };
 		2BDBB8EF18BFBAF900A650F0 /* MLPatronsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBB8EE18BFBAF900A650F0 /* MLPatronsTableViewController.m */; };
+		2BE3F0EA197303D20062CC5E /* chat_activated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E0197303D20062CC5E /* chat_activated.png */; };
+		2BE3F0EB197303D20062CC5E /* chat_unactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E1197303D20062CC5E /* chat_unactivated.png */; };
+		2BE3F0EC197303D20062CC5E /* gear_activated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E2197303D20062CC5E /* gear_activated.png */; };
+		2BE3F0ED197303D20062CC5E /* gear_unactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E3197303D20062CC5E /* gear_unactivated.png */; };
+		2BE3F0EE197303D20062CC5E /* interests_activated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E4197303D20062CC5E /* interests_activated.png */; };
+		2BE3F0EF197303D20062CC5E /* interests_unactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E5197303D20062CC5E /* interests_unactivated.png */; };
+		2BE3F0F0197303D20062CC5E /* invite_activated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E6197303D20062CC5E /* invite_activated.png */; };
+		2BE3F0F2197303D20062CC5E /* whosaround_activated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E8197303D20062CC5E /* whosaround_activated.png */; };
+		2BE3F0F3197303D20062CC5E /* whosaround_unactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0E9197303D20062CC5E /* whosaround_unactivated.png */; };
+		2BE3F0F5197305DC0062CC5E /* invite_unactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F0F4197305DC0062CC5E /* invite_unactivated.png */; };
+		2BE3F11419730A2A0062CC5E /* chat_activated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F10A19730A2A0062CC5E /* chat_activated@2x.png */; };
+		2BE3F11519730A2A0062CC5E /* chat_unactivated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F10B19730A2A0062CC5E /* chat_unactivated@2x.png */; };
+		2BE3F11619730A2A0062CC5E /* gear_activated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F10C19730A2A0062CC5E /* gear_activated@2x.png */; };
+		2BE3F11719730A2A0062CC5E /* gear_unactivated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F10D19730A2A0062CC5E /* gear_unactivated@2x.png */; };
+		2BE3F11819730A2A0062CC5E /* interests_activated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F10E19730A2A0062CC5E /* interests_activated@2x.png */; };
+		2BE3F11919730A2A0062CC5E /* interests_unactivated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F10F19730A2A0062CC5E /* interests_unactivated@2x.png */; };
+		2BE3F11A19730A2A0062CC5E /* invite_activated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F11019730A2A0062CC5E /* invite_activated@2x.png */; };
+		2BE3F11B19730A2A0062CC5E /* invite_unactivated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F11119730A2A0062CC5E /* invite_unactivated@2x.png */; };
+		2BE3F11C19730A2A0062CC5E /* whosaround_activated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F11219730A2A0062CC5E /* whosaround_activated@2x.png */; };
+		2BE3F11D19730A2A0062CC5E /* whosaround_unactivated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3F11319730A2A0062CC5E /* whosaround_unactivated@2x.png */; };
 		2BE57AFF1918013000D9F3D0 /* MLChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE57AFE1918013000D9F3D0 /* MLChatTableViewController.m */; };
 		2BEE7E7618A043D600744AFC /* MLRegistrationUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEE7E7518A043D600744AFC /* MLRegistrationUserInfoViewController.m */; };
 		45A4E92641384226AFC21BD8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B66014A602417EB60FDC1D /* libPods.a */; };
@@ -113,6 +133,26 @@
 		2BDBB8EA18BE680100A650F0 /* MLInterestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLInterestViewController.m; sourceTree = "<group>"; };
 		2BDBB8ED18BFBAF900A650F0 /* MLPatronsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPatronsTableViewController.h; sourceTree = "<group>"; };
 		2BDBB8EE18BFBAF900A650F0 /* MLPatronsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPatronsTableViewController.m; sourceTree = "<group>"; };
+		2BE3F0E0197303D20062CC5E /* chat_activated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_activated.png; sourceTree = "<group>"; };
+		2BE3F0E1197303D20062CC5E /* chat_unactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_unactivated.png; sourceTree = "<group>"; };
+		2BE3F0E2197303D20062CC5E /* gear_activated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_activated.png; sourceTree = "<group>"; };
+		2BE3F0E3197303D20062CC5E /* gear_unactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_unactivated.png; sourceTree = "<group>"; };
+		2BE3F0E4197303D20062CC5E /* interests_activated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = interests_activated.png; sourceTree = "<group>"; };
+		2BE3F0E5197303D20062CC5E /* interests_unactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = interests_unactivated.png; sourceTree = "<group>"; };
+		2BE3F0E6197303D20062CC5E /* invite_activated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite_activated.png; sourceTree = "<group>"; };
+		2BE3F0E8197303D20062CC5E /* whosaround_activated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whosaround_activated.png; sourceTree = "<group>"; };
+		2BE3F0E9197303D20062CC5E /* whosaround_unactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whosaround_unactivated.png; sourceTree = "<group>"; };
+		2BE3F0F4197305DC0062CC5E /* invite_unactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite_unactivated.png; sourceTree = "<group>"; };
+		2BE3F10A19730A2A0062CC5E /* chat_activated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_activated@2x.png"; sourceTree = "<group>"; };
+		2BE3F10B19730A2A0062CC5E /* chat_unactivated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_unactivated@2x.png"; sourceTree = "<group>"; };
+		2BE3F10C19730A2A0062CC5E /* gear_activated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear_activated@2x.png"; sourceTree = "<group>"; };
+		2BE3F10D19730A2A0062CC5E /* gear_unactivated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear_unactivated@2x.png"; sourceTree = "<group>"; };
+		2BE3F10E19730A2A0062CC5E /* interests_activated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interests_activated@2x.png"; sourceTree = "<group>"; };
+		2BE3F10F19730A2A0062CC5E /* interests_unactivated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interests_unactivated@2x.png"; sourceTree = "<group>"; };
+		2BE3F11019730A2A0062CC5E /* invite_activated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invite_activated@2x.png"; sourceTree = "<group>"; };
+		2BE3F11119730A2A0062CC5E /* invite_unactivated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invite_unactivated@2x.png"; sourceTree = "<group>"; };
+		2BE3F11219730A2A0062CC5E /* whosaround_activated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whosaround_activated@2x.png"; sourceTree = "<group>"; };
+		2BE3F11319730A2A0062CC5E /* whosaround_unactivated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whosaround_unactivated@2x.png"; sourceTree = "<group>"; };
 		2BE57AFD1918013000D9F3D0 /* MLChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLChatTableViewController.h; sourceTree = "<group>"; };
 		2BE57AFE1918013000D9F3D0 /* MLChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLChatTableViewController.m; sourceTree = "<group>"; };
 		2BEE7E7418A043D600744AFC /* MLRegistrationUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLRegistrationUserInfoViewController.h; sourceTree = "<group>"; };
@@ -255,11 +295,8 @@
 		2B921270189EE5B50041A154 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2B45FCB71970D5D700C69357 /* hifi_logo_text_120pt_white.png */,
-				2B45FCB81970D5D700C69357 /* iphone4_register_screen_2.png */,
-				2B45FCB91970D5D700C69357 /* iphone5_register_screen.png */,
+				2BE3F0DE197302C70062CC5E /* Images */,
 				2BD31BA3197061BF00B57A10 /* Fonts */,
-				2B4F03C1190F3349002A4F8E /* placeholder.jpg */,
 				2B4F31C618FDA15900B72A1A /* Core Location */,
 				2B05CD8218FCB30900B97053 /* Foursquare */,
 				2B81B85218E5E0B00035EDCC /* Custom Table Cell */,
@@ -349,6 +386,45 @@
 				2BDBB8E518BE66E400A650F0 /* People */,
 			);
 			name = "Available Users";
+			sourceTree = "<group>";
+		};
+		2BE3F0DE197302C70062CC5E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2BE3F0F4197305DC0062CC5E /* invite_unactivated.png */,
+				2BE3F0E0197303D20062CC5E /* chat_activated.png */,
+				2BE3F0E1197303D20062CC5E /* chat_unactivated.png */,
+				2BE3F0E2197303D20062CC5E /* gear_activated.png */,
+				2BE3F0E3197303D20062CC5E /* gear_unactivated.png */,
+				2BE3F0E4197303D20062CC5E /* interests_activated.png */,
+				2BE3F0E5197303D20062CC5E /* interests_unactivated.png */,
+				2BE3F0E6197303D20062CC5E /* invite_activated.png */,
+				2BE3F0E8197303D20062CC5E /* whosaround_activated.png */,
+				2BE3F0E9197303D20062CC5E /* whosaround_unactivated.png */,
+				2B4F03C1190F3349002A4F8E /* placeholder.jpg */,
+				2B45FCB71970D5D700C69357 /* hifi_logo_text_120pt_white.png */,
+				2B45FCB81970D5D700C69357 /* iphone4_register_screen_2.png */,
+				2BE3F0DF197302CC0062CC5E /* Retina */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		2BE3F0DF197302CC0062CC5E /* Retina */ = {
+			isa = PBXGroup;
+			children = (
+				2BE3F10A19730A2A0062CC5E /* chat_activated@2x.png */,
+				2BE3F10B19730A2A0062CC5E /* chat_unactivated@2x.png */,
+				2BE3F10C19730A2A0062CC5E /* gear_activated@2x.png */,
+				2BE3F10D19730A2A0062CC5E /* gear_unactivated@2x.png */,
+				2BE3F10E19730A2A0062CC5E /* interests_activated@2x.png */,
+				2BE3F10F19730A2A0062CC5E /* interests_unactivated@2x.png */,
+				2BE3F11019730A2A0062CC5E /* invite_activated@2x.png */,
+				2BE3F11119730A2A0062CC5E /* invite_unactivated@2x.png */,
+				2BE3F11219730A2A0062CC5E /* whosaround_activated@2x.png */,
+				2BE3F11319730A2A0062CC5E /* whosaround_unactivated@2x.png */,
+				2B45FCB91970D5D700C69357 /* iphone5_register_screen.png */,
+			);
+			name = Retina;
 			sourceTree = "<group>";
 		};
 		2BE57AFC1917FFC300D9F3D0 /* Chat Rooms */ = {
@@ -478,14 +554,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE3F0F0197303D20062CC5E /* invite_activated.png in Resources */,
 				2B108FC418E66B6B00B165B7 /* MLTableViewCell.xib in Resources */,
+				2BE3F0EA197303D20062CC5E /* chat_activated.png in Resources */,
+				2BE3F11419730A2A0062CC5E /* chat_activated@2x.png in Resources */,
+				2BE3F0F2197303D20062CC5E /* whosaround_activated.png in Resources */,
+				2BE3F0EC197303D20062CC5E /* gear_activated.png in Resources */,
+				2BE3F0EE197303D20062CC5E /* interests_activated.png in Resources */,
+				2BE3F0F3197303D20062CC5E /* whosaround_unactivated.png in Resources */,
+				2BE3F11719730A2A0062CC5E /* gear_unactivated@2x.png in Resources */,
+				2BE3F0EF197303D20062CC5E /* interests_unactivated.png in Resources */,
+				2BE3F11C19730A2A0062CC5E /* whosaround_activated@2x.png in Resources */,
+				2BE3F11B19730A2A0062CC5E /* invite_unactivated@2x.png in Resources */,
 				2B45FCBC1970D5D700C69357 /* iphone5_register_screen.png in Resources */,
+				2BE3F11619730A2A0062CC5E /* gear_activated@2x.png in Resources */,
 				2B45FCBA1970D5D700C69357 /* hifi_logo_text_120pt_white.png in Resources */,
+				2BE3F11D19730A2A0062CC5E /* whosaround_unactivated@2x.png in Resources */,
+				2BE3F0ED197303D20062CC5E /* gear_unactivated.png in Resources */,
+				2BE3F0F5197305DC0062CC5E /* invite_unactivated.png in Resources */,
 				2B921274189EE5B50041A154 /* InfoPlist.strings in Resources */,
+				2BE3F0EB197303D20062CC5E /* chat_unactivated.png in Resources */,
+				2BE3F11919730A2A0062CC5E /* interests_unactivated@2x.png in Resources */,
+				2BE3F11519730A2A0062CC5E /* chat_unactivated@2x.png in Resources */,
 				2B92127F189EE5B50041A154 /* Images.xcassets in Resources */,
 				2B4F03C2190F3349002A4F8E /* placeholder.jpg in Resources */,
 				2BA04A1B189EE8F1003B2869 /* SocialLubrication.storyboard in Resources */,
 				2B45FCBB1970D5D700C69357 /* iphone4_register_screen_2.png in Resources */,
+				2BE3F11819730A2A0062CC5E /* interests_activated@2x.png in Resources */,
+				2BE3F11A19730A2A0062CC5E /* invite_activated@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,7 +777,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialLubrication/SocialLubrication-Prefix.pch";
 				INFOPLIST_FILE = "SocialLubrication/SocialLubrication-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Hifi;
 				SDKROOT = iphoneos;
@@ -700,7 +796,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialLubrication/SocialLubrication-Prefix.pch";
 				INFOPLIST_FILE = "SocialLubrication/SocialLubrication-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Hifi;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
