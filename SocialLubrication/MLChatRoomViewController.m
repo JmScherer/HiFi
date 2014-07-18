@@ -26,6 +26,8 @@
 @property (strong, nonatomic) NSMutableArray *JSQChatArray;
 @property (strong, nonatomic) UIBarButtonItem *imageToggle;
 
+
+
 @end
 
 @implementation MLChatRoomViewController
@@ -51,6 +53,7 @@
                                     incomingMessageBubbleImageViewWithColor:[UIColor jsq_messageBubbleGreenColor]];
     
     self.currentUser = [PFUser currentUser];
+    self.sender = self.currentUser.username;
     PFUser *testUser1 = self.chatRoom[@"user1"];
     if([testUser1.objectId isEqual:self.currentUser.objectId]){
         self.withUser = self.chatRoom[@"user2"];
@@ -77,14 +80,8 @@
     //self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero;
     
     //self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero;
-    
+
     CGFloat outgoingDiameter = self.collectionView.collectionViewLayout.outgoingAvatarViewSize.width;
-    
-    //    UIImage *jsqImage = [JSQMessagesAvatarFactory avatarWithUserInitials:@"JSQ"
-    //                                                         backgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]
-    //                                                               textColor:[UIColor colorWithWhite:0.60f alpha:1.0f]
-    //                                                                    font:[UIFont systemFontOfSize:14.0f]
-    //                                                                diameter:outgoingDiameter];
     
     CGFloat incomingDiameter = self.collectionView.collectionViewLayout.incomingAvatarViewSize.width;
     
@@ -112,6 +109,14 @@
 
 //    self.currentUserAvatarImage = [JSQMessagesAvatarFactory avatarWithImage:[UIImage imageNamed:@"placeholder.jpg"] diameter:outgoingDiameter];
 //    self.withUserAvatarImage = [JSQMessagesAvatarFactory avatarWithImage:[UIImage imageNamed:@"placeholder.jpg"] diameter:incomingDiameter];
+
+    
+//    UIImage *jsqImage = [JSQMessagesAvatarFactory avatarWithUserInitials:@"JSQ"
+//                                                         backgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]
+//                                                               textColor:[UIColor colorWithWhite:0.60f alpha:1.0f]
+//                                                                    font:[UIFont systemFontOfSize:14.0f]
+//                                                                diameter:outgoingDiameter];
+//    self.currentUserAvatarImage = jsqImage;
 
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -190,7 +195,7 @@
         [chat setObject:text forKey:@"text"];
         [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             [self.chats addObject:chat];
-            JSQMessage *message = [[JSQMessage alloc] initWithText:text sender:self.currentUser.username date:date];
+            JSQMessage *message = [[JSQMessage alloc] initWithText:text sender:self.sender date:date];
             [self.JSQChatArray addObject:message];
             [JSQSystemSoundPlayer jsq_playMessageSentSound];
             [self.collectionView reloadData];
@@ -222,7 +227,7 @@
     
     JSQMessage *message = [self.JSQChatArray objectAtIndex:indexPath.item];
     
-    if ([message.sender isEqualToString:self.currentUser.username]) {
+    if ([message.sender isEqualToString:self.sender]) {
         return [[UIImageView alloc] initWithImage:self.outgoingBubbleImageView.image
                                  highlightedImage:self.outgoingBubbleImageView.highlightedImage];
     }
@@ -259,7 +264,7 @@
     
     UIImage *avatarImage = [[UIImage alloc] init];
     
-    if([message.sender isEqual:self.currentUser.username]){
+    if([message.sender isEqual:self.sender]){
         avatarImage = self.currentUserAvatarImage;
     }
     else avatarImage = self.withUserAvatarImage;
@@ -418,7 +423,7 @@
 #pragma mark - Factory Methods
 
 -(void)checkForNewChats{
-    int oldChatCount = [self.chats count];
+    NSUInteger oldChatCount = [self.chats count];
     
     
     PFQuery *queryForChats = [PFQuery queryWithClassName:@"Chat"];
@@ -443,7 +448,7 @@
                     
                     if([testFromUser.objectId isEqual:currentUser.objectId]){
                         
-                        [self.JSQChatArray addObject:[[JSQMessage alloc] initWithText:chat[@"text"] sender:self.currentUser.username date:chat.createdAt]];
+                        [self.JSQChatArray addObject:[[JSQMessage alloc] initWithText:chat[@"text"] sender:self.sender date:chat.createdAt]];
                     }
                     else {
                         [self.JSQChatArray addObject:[[JSQMessage alloc] initWithText:chat[@"text"] sender:self.withUser.username date:chat.createdAt]];
@@ -463,7 +468,7 @@
             }
         }
     }];
-    
+
 }
 
 @end
