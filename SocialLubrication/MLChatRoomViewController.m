@@ -46,6 +46,14 @@
 {
     [super viewDidLoad];
     
+    /* NavBar Bottom Border */
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 45.0f, self.view.frame.size.width, 1.0f);
+    
+    bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
+    
+    [self.navigationController.navigationBar.layer addSublayer:bottomBorder];
+    
     self.outgoingBubbleImageView = [JSQMessagesBubbleImageFactory
                                     outgoingMessageBubbleImageViewWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
     
@@ -54,21 +62,16 @@
     
     self.currentUser = [PFUser currentUser];
     self.sender = self.currentUser.username;
-    PFUser *testUser1 = self.chatRoom[@"user1"];
-    if([testUser1.objectId isEqual:self.currentUser.objectId]){
-        self.withUser = self.chatRoom[@"user2"];
-        self.currentUserAvatar = self.chatRoom[@"user1Avatar"];
-        self.withUserAvatar = self.chatRoom[@"user2Avatar"];
-    }
-    else {
-        self.withUser = self.chatRoom[@"user1"];
-        self.currentUserAvatar = self.chatRoom[@"user2Avatar"];
-        self.withUserAvatar = self.chatRoom[@"user1Avatar"];
-    }
+
     self.title = self.withUser.username;
     self.initialLoadComplete = NO;
     
+    [self checkAvatarStatus];
+    
+
+    
     [self checkForNewChats];
+    
     
     self.chatTimer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
     
@@ -109,25 +112,23 @@
 
 //    self.currentUserAvatarImage = [JSQMessagesAvatarFactory avatarWithImage:[UIImage imageNamed:@"placeholder.jpg"] diameter:outgoingDiameter];
 //    self.withUserAvatarImage = [JSQMessagesAvatarFactory avatarWithImage:[UIImage imageNamed:@"placeholder.jpg"] diameter:incomingDiameter];
-
-    
-//    UIImage *jsqImage = [JSQMessagesAvatarFactory avatarWithUserInitials:@"JSQ"
-//                                                         backgroundColor:[UIColor colorWithWhite:0.85f alpha:1.0f]
-//                                                               textColor:[UIColor colorWithWhite:0.60f alpha:1.0f]
-//                                                                    font:[UIFont systemFontOfSize:14.0f]
-//                                                                diameter:outgoingDiameter];
-//    self.currentUserAvatarImage = jsqImage;
-
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if([self.currentUserAvatar isEqual:@NO]){
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor redColor];
+    }
+    else {
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueColor];
+    }
     
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
     
     /**
      *  Enable/disable springy bubbles, default is YES.
@@ -434,28 +435,19 @@
             if(self.initialLoadComplete == NO || oldChatCount != [objects count]){
                 self.chats = [objects mutableCopy];
                 
-                NSLog(@"self.chats: %@", self.chats);
-                
                 for(int i = 0; i < [self.chats count]; i++){
                     
-                    NSLog(@"i: %i", i);
                     PFObject *chat = self.chats[i];
-                    NSLog(@"chat: %@", chat);
                     PFUser *testFromUser = chat[@"fromUser"];
-                    NSLog(@"testFromUser: %@", testFromUser);
                     PFUser *currentUser = [PFUser currentUser];
-                    NSLog(@"currentUser: %@", currentUser);
                     
                     if([testFromUser.objectId isEqual:currentUser.objectId]){
-                        
                         [self.JSQChatArray addObject:[[JSQMessage alloc] initWithText:chat[@"text"] sender:self.sender date:chat.createdAt]];
                     }
                     else {
                         [self.JSQChatArray addObject:[[JSQMessage alloc] initWithText:chat[@"text"] sender:self.withUser.username date:chat.createdAt]];
                     }
                 }
-                
-                NSLog(@"self.JSQChatArray: %@", self.JSQChatArray);
                 
                 [self.collectionView reloadData];
                 
@@ -469,6 +461,23 @@
         }
     }];
 
+}
+
+-(void)checkAvatarStatus{
+    PFUser *testUser1 = self.chatRoom[@"user1"];
+    if([testUser1.objectId isEqual:self.currentUser.objectId]){
+        self.withUser = self.chatRoom[@"user2"];
+        self.currentUserAvatar = self.chatRoom[@"user1Avatar"];
+        self.withUserAvatar = self.chatRoom[@"user2Avatar"];
+    }
+    else {
+        self.withUser = self.chatRoom[@"user1"];
+        self.currentUserAvatar = self.chatRoom[@"user2Avatar"];
+        self.withUserAvatar = self.chatRoom[@"user1Avatar"];
+    }
+    
+    NSLog(@"Current User Avatar: %@", self.currentUserAvatar);
+    
 }
 
 @end

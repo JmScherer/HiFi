@@ -28,6 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    /* NavBar Bottom Border */
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 45.0f, self.view.frame.size.width, 1.0f);
+    
+    bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
+    
+    [self.navigationController.navigationBar.layer addSublayer:bottomBorder];
+    
     // Do any additional setup after loading the view.
     PFQuery *userImage = [PFQuery queryWithClassName:@"Photo"];
     [userImage whereKey:@"user" equalTo:[PFUser currentUser]];
@@ -38,6 +47,7 @@
         
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             self.userPhotoImageView.image = [UIImage imageWithData:data];
+            self.userPhotoImageView.contentMode = UIViewContentModeScaleAspectFit;
         }];
         
     }];
@@ -66,8 +76,6 @@
 
 - (IBAction)setUserImage:(UIButton *)sender {
 }
-
-
 
 
 - (IBAction)logoutButtonPressed:(UIButton *)sender {

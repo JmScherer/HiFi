@@ -38,22 +38,47 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    /* NavBar Bottom Border */
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 45.0f, self.view.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
+    [self.navigationController.navigationBar.layer addSublayer:bottomBorder];
+
     
-    NSArray *array = [self.navigationController viewControllers];
-    
-    NSLog(@"View controllers: %@", array);
-    
-    [self subscribeToKeyboardEvents:YES];
+    /* Making sure the Scrollview works */
     
     [scroller setScrollEnabled:YES];
     scroller.contentSize = CGSizeMake(320, 568);
-    
-    self.user = [PFUser currentUser];
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [scroller addGestureRecognizer:tap];
+    [self subscribeToKeyboardEvents:YES];
     
-    NSLog(@"%@", self.user.username);
+    /* Setting up all the text fields to conform to the design standards */
+    
+    self.userInterest1.layer.cornerRadius=8.0f;
+    self.userInterest1.layer.masksToBounds=YES;
+    self.userInterest1.layer.borderColor=[[UIColor colorWithRed:109.0/255.0f green:110.0/255.0f blue:113.0/255.0f alpha:1.0f]CGColor];
+    self.userInterest1.layer.borderWidth= 1.0f;
+    
+    self.userInterest2.layer.cornerRadius=8.0f;
+    self.userInterest2.layer.masksToBounds=YES;
+    self.userInterest2.layer.borderColor=[[UIColor colorWithRed:109.0/255.0f green:110.0/255.0f blue:113.0/255.0f alpha:1.0f]CGColor];
+    self.userInterest2.layer.borderWidth= 1.0f;
+    
+    self.userInterest3.layer.cornerRadius=8.0f;
+    self.userInterest3.layer.masksToBounds=YES;
+    self.userInterest3.layer.borderColor=[[UIColor colorWithRed:109.0/255.0f green:110.0/255.0f blue:113.0/255.0f alpha:1.0f]CGColor];
+    self.userInterest3.layer.borderWidth= 1.0f;
+    
+    self.userInterest4.layer.cornerRadius=8.0f;
+    self.userInterest4.layer.masksToBounds=YES;
+    self.userInterest4.layer.borderColor=[[UIColor colorWithRed:109.0/255.0f green:110.0/255.0f blue:113.0/255.0f alpha:1.0f]CGColor];
+    self.userInterest4.layer.borderWidth= 1.0f;
+    
+    self.userTagLine.layer.cornerRadius=8.0f;
+    self.userTagLine.layer.masksToBounds=YES;
+    self.userTagLine.layer.borderColor=[[UIColor colorWithRed:109.0/255.0f green:110.0/255.0f blue:113.0/255.0f alpha:1.0f]CGColor];
+    self.userTagLine.layer.borderWidth= 1.0f;
     
     self.userInterest1.delegate = self;
     self.userInterest2.delegate = self;
@@ -61,7 +86,9 @@
     self.userInterest4.delegate = self;
     self.userTagLine.delegate = self;
 
+    /* Pulling and assigning all the user interests to the text fields */
     
+    self.user = [PFUser currentUser];
     self.navigationItem.title = self.user.username;
     self.userInterest1.text = self.user[@"interest1"];
     self.userInterest2.text = self.user[@"interest2"];
@@ -81,6 +108,8 @@
     [self subscribeToKeyboardEvents:NO];
 }
 
+    /* Make sure the keyboard responds to user's request to dismiss the keyboard and scroll the view if needed */
+
 - (void)subscribeToKeyboardEvents:(BOOL)subscribe{
     
     if(subscribe){
@@ -95,6 +124,8 @@
     }
     
 }
+
+    /* Make sure the keyboard shows up and pushes the view up so the text field is not being covered by the keyboard */
 
 - (void) keyboardDidShow:(NSNotification *)nsNotification {
     
@@ -114,6 +145,8 @@
     [scroller setFrame:newFrame];
     
 }
+
+/* Reset the view when the keyboard is dismissed */
 
 -(void)keyboardWillHide:(NSNotification *)nsNotification {
     
@@ -157,39 +190,35 @@
     
 }
 
+/* If the interests are changed by the user, then overwrite parse entry */
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    
-//    [self.userInterest1 resignFirstResponder];
-//    [self.userInterest2 resignFirstResponder];
-//    [self.userInterest3 resignFirstResponder];
-//    [self.userInterest4 resignFirstResponder];
-//    [self.userTagLine resignFirstResponder];
     
     if ([self.userInterest1 resignFirstResponder]) {
         [self.userInterest1 resignFirstResponder];
         [self.user setObject:self.userInterest1.text forKey:@"interest1"];
-        NSLog(@"Interest 1 saved");
+        //NSLog(@"Interest 1 saved");
     }
     
     if ([self.userInterest2 resignFirstResponder]) {
         [self.userInterest2 resignFirstResponder];
         [self.user setObject:self.userInterest2.text forKey:@"interest2"];
-        NSLog(@"Interest 2 saved");
+        //NSLog(@"Interest 2 saved");
     }
     if ([self.userInterest3 resignFirstResponder]) {
         [self.userInterest3 resignFirstResponder];
         [self.user setObject:self.userInterest3.text forKey:@"interest3"];
-        NSLog(@"Interest 3 saved");
+        //NSLog(@"Interest 3 saved");
     }
     if ([self.userInterest4 resignFirstResponder]) {
         [self.userInterest4 resignFirstResponder];
         [self.user setObject:self.userInterest4.text forKey:@"interest4"];
-        NSLog(@"Interest 4 saved");
+        //NSLog(@"Interest 4 saved");
     }
     if ([self.userTagLine resignFirstResponder]) {
         [self.userTagLine resignFirstResponder];
         [self.user setObject:self.userTagLine.text forKey:@"tagLine"];
-        NSLog(@"Interest Tag saved");
+        //NSLog(@"Interest Tag saved");
     }
     
     [self.user saveInBackground];
@@ -198,54 +227,36 @@
 }
 
 -(void)dismissKeyboard{
-//
-//    [self.userInterest2 resignFirstResponder];
-//    [self.userInterest3 resignFirstResponder];
-//    [self.userInterest4 resignFirstResponder];
-//    [self.userTagLine resignFirstResponder];
     
     if ([self.userInterest1 resignFirstResponder]) {
         [self.userInterest1 resignFirstResponder];
         [self.user setObject:self.userInterest1.text forKey:@"interest1"];
-        NSLog(@"Interest 1 saved");
+        //NSLog(@"Interest 1 saved");
     }
     
     if ([self.userInterest2 resignFirstResponder]) {
         [self.userInterest2 resignFirstResponder];
         [self.user setObject:self.userInterest2.text forKey:@"interest2"];
-        NSLog(@"Interest 2 saved");
+        //NSLog(@"Interest 2 saved");
     }
     if ([self.userInterest3 resignFirstResponder]) {
         [self.userInterest3 resignFirstResponder];
         [self.user setObject:self.userInterest3.text forKey:@"interest3"];
-        NSLog(@"Interest 3 saved");
+        //NSLog(@"Interest 3 saved");
     }
     if ([self.userInterest4 resignFirstResponder]) {
         [self.userInterest4 resignFirstResponder];
         [self.user setObject:self.userInterest4.text forKey:@"interest4"];
-        NSLog(@"Interest 4 saved");
+        //NSLog(@"Interest 4 saved");
     }
     if ([self.userTagLine resignFirstResponder]) {
         [self.userTagLine resignFirstResponder];
         [self.user setObject:self.userTagLine.text forKey:@"tagLine"];
-        NSLog(@"Interest Tag saved");
+        //NSLog(@"Interest Tag saved");
     }
     
     [self.user saveInBackground];
     
 }
-
-
-//- (IBAction)userSaveSettings:(UIButton *)sender {
-//    
-//    [self.user setObject:self.userInterest1.text forKey:@"interest1"];
-//    [self.user setObject:self.userInterest2.text forKey:@"interest2"];
-//    [self.user setObject:self.userInterest3.text forKey:@"interest3"];
-//    [self.user setObject:self.userInterest4.text forKey:@"interest4"];
-//    [self.user setObject:self.userTagLine.text forKey:@"tagLine"];
-//    
-//    [self.user saveInBackground];
-//    
-//}
 
 @end

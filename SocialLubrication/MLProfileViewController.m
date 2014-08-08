@@ -38,6 +38,14 @@
     
     //PFUser *userProfile = self.userProfile[@"user"];
     
+    /* NavBar Bottom Border */
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 45.0f, self.view.frame.size.width, 1.0f);
+    
+    bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
+    
+    [self.navigationController.navigationBar.layer addSublayer:bottomBorder];
+    
     self.profileUserNameLabel.text = self.userProfile.username;
     self.profileTagLineLabel.text = self.userProfile[@"tagLine"];
     self.profileInterest1.text = self.userProfile[@"interest1"];

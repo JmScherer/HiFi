@@ -16,23 +16,38 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /* Uncomment to list all available fonts in console */
+    
+//    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
+//    NSArray *fontNames;
+//    NSInteger indFamily, indFont;
+//    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
+//    {
+//        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
+//        fontNames = [[NSArray alloc] initWithArray:
+//                     [UIFont fontNamesForFamilyName:
+//                      [familyNames objectAtIndex:indFamily]]];
+//        for (indFont=0; indFont<[fontNames count]; ++indFont)
+//        {
+//            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
+//        }
+//    }
+    
+    /* Parse Application ID & Client key */
+    
     [Parse setApplicationId:@"ozRs7HxMlhKB0MiRn65SUOXtLPzhnSPWdUSKiEWy" clientKey:@"l0vtMDu6RvgxQhtWlAVXCD3HEtGxABHjg4Syetyk"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     
-//    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-//    UITabBar *tabBar = tabBarController.tabBar;
+    //bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
     
-//    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
-//    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
-//    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
-//    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+
+    /* Setting the default UINavigationBar attributes */
     
-    //[tabBarItem1 setImage:[[UIImage imageNamed:@"placeholder.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:241.0/255.0f green:242/255.0f blue:242.0/255.0f alpha:1.0f]];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:241.0/255.0f green:90.0/255.0f blue:41/255.0f alpha:1.0f]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:241/255.0 green:90/255.0 blue:41/255.0 alpha:1.0], NSFontAttributeName : [UIFont fontWithName:@"Euphemia UCAS" size:20.0]}];
-    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:241.0/255.0f green:90.0/255.0f blue:41/255.0f alpha:1.0f]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:241/255.0 green:90/255.0 blue:41/255.0 alpha:1.0], NSFontAttributeName : [UIFont fontWithName:@"EuphemiaUCAS-Bold" size:20.0]}];
+    
     return YES;
 }
 

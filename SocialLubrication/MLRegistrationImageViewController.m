@@ -10,6 +10,7 @@
 
 
 @interface MLRegistrationImageViewController () <UIImagePickerControllerDelegate, UINavigationBarDelegate>
+
 @property (strong, nonatomic) IBOutlet UIImageView *userImageView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UIButton *setImageButtonPressed;
@@ -32,16 +33,18 @@
 {
     [super viewDidLoad];
     
-    self.setImageButtonPressed.enabled = YES;
-    self.createAccountBarButtonPressed.enabled = YES;
-    self.navigationItem.backBarButtonItem.enabled = YES;
-    
     self.activityIndicator.hidden = YES;
     
+    /* Setup a placeholder image for user registration */
     self.userImageView.image = [UIImage imageNamed:@"placeholder.jpg"];
+    self.userImageView.contentMode = UIViewContentModeScaleAspectFit;
 	// Do any additional setup after loading the view.
     
-    
+    /* NavBar Bottom Border */
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 45.0f, self.view.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
+    [self.navigationController.navigationBar.layer addSublayer:bottomBorder];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -54,16 +57,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)userImageButtonPressed:(UIButton *)sender {
-    
-    UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
-    imgPicker.delegate = self;
-    imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
- 
-    
-    [self.navigationController presentViewController:imgPicker animated:YES completion:nil];
-    
-}
+/* Dismisses imagepicker and saves the image chosen to an object */
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
     
@@ -77,21 +71,35 @@
 }
 
 
-#pragma mark - 
+#pragma mark - Buttons
+
+/* Brings up the image picker for user to select their profile picture */
+
+- (IBAction)userImageButtonPressed:(UIButton *)sender {
+    
+    UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+    imgPicker.delegate = self;
+    imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self.navigationController presentViewController:imgPicker animated:YES completion:nil];
+}
+
+/* Creates the user account, assigns the user attributes to the database on Parse and takes us back to the login page */
 
 - (IBAction)createAccountBarButtonPressed:(UIBarButtonItem *)sender {
     
+    /* Start activity indicator */
+    
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
+    
+    /* While uploading, make sure the user cannot move away from page */
     
     self.setImageButtonPressed.enabled = NO;
     self.createAccountBarButtonPressed.enabled = NO;
     self.navigationItem.backBarButtonItem.enabled = NO;
     
-    NSLog(@"%@", self.userCredentials.userName);
-    NSLog(@"%@", self.userCredentials.userPassword);
-    NSLog(@"%@", self.userCredentials.userEmail);
-    NSLog(@"%@", self.userCredentials.userBirthday);
+    /* Creating a new user with all the login credentials */
     
     PFUser *user = [PFUser user];
     
@@ -135,6 +143,13 @@
         }
     }];
 
+    /* Uncomment to see all account creation values being uploaded */
+    
+    //    NSLog(@"%@", self.userCredentials.userName);
+    //    NSLog(@"%@", self.userCredentials.userPassword);
+    //    NSLog(@"%@", self.userCredentials.userEmail);
+    //    NSLog(@"%@", self.userCredentials.userBirthday);
+    
 }
 
 @end

@@ -62,7 +62,11 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-
+    /* NavBar Bottom Border */
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 45.0f, self.view.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
+    [self.navigationController.navigationBar.layer addSublayer:bottomBorder];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -70,6 +74,8 @@
     MLUser *tempUser = [MLUser sharedInstance];
     
     self.navigationItem.title = tempUser.userLocation;
+    
+    /* Starts updating users who checked into the venue on a timed basis */
     
     [self updateUsers];
     
@@ -79,7 +85,6 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [self.userTimer invalidate];
     self.userTimer = nil;
-    //NSLog(@"View Did Disappear Executed");
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,6 +102,8 @@
 #pragma mark - Prepare for Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    /* Segues to the user's profile */
     
     if([segue.destinationViewController isKindOfClass:[MLProfileViewController class]]){
     
@@ -118,6 +125,8 @@
         usrProfile.userProfile = user;
         }
     }
+    
+    /* Segues to the chat invite page */
     
     if([segue.destinationViewController isKindOfClass:[MLPeopleViewController class]]){
         
@@ -149,11 +158,7 @@
     MLUserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userListCell" forIndexPath:indexPath];
     [cell.userFunctionButton removeTarget:self action:NULL forControlEvents:UIControlEventAllEvents];
     
-//    if(!cell){
-//        [tableView registerNib:[UINib nibWithNibName:@"MLTableViewCell" bundle:nil] forCellReuseIdentifier:@"userListCell"];
-//        cell = [tableView dequeueReusableCellWithIdentifier:@"userListCell" forIndexPath:indexPath];
-//    }
-    
+    /* Pulls and displays all the individuals that the user successfully invited to chat */
     
     if(indexPath.section == 0){
         PFObject *invitedUsers = [self.invitedUsers objectAtIndex:indexPath.row];
@@ -181,11 +186,10 @@
                 else{
                     [invitedUsers setObject:@"chat" forKey:@"activity"];
                     [invitedUsers saveInBackground];
-                    
-                }
-            }
-        }];
+                }}}];
     }
+    
+    /* Displays all the users that are available for invite */
     
     if(indexPath.section == 1){
         PFObject *availableUsers = [self.availableUsers objectAtIndex:indexPath.row];
@@ -225,6 +229,8 @@
 
 #pragma mark - Helper Methods
 
+/* Pulls all the individuals that the user successfully invited to chat */
+
 -(void)updateAvailableUsers{
 
     MLUser *userLocation = [MLUser sharedInstance];
@@ -248,6 +254,8 @@
     }];
 }
 
+/* Pulls all the individuals that the user has successfully invited to chat */
+
 -(void)checkInvite{
     
     PFQuery *locationQuery = [[PFQuery alloc] initWithClassName:@"Location"];
@@ -267,9 +275,10 @@
             self.invitedUsers = [objects mutableCopy];
             [self.tableView reloadData];
             //NSLog(@"Invited Users: %@", self.invitedUsers);
-        }
-    }];
+        }}];
 }
+
+/* Checks to see if both the user and any individual have successfully invited each other to chat and then subsequently creates a chatroom for both */
 
 -(void)createChatRoom:(PFUser *)user{
     PFQuery *query = [ PFQuery queryWithClassName:@"ChatRoom"];
@@ -285,7 +294,6 @@
     [combinedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if(!error){
-            
             if([objects count] == 0){
                 PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
                 [chatroom setObject:[PFUser currentUser] forKey:@"user1"];
@@ -294,10 +302,10 @@
                 [chatroom setObject:@NO forKey:@"user2Avatar"];
                 [chatroom saveInBackground];
                 
-            }
-        }
-    }];
+            }}}];
 }
+
+/* Saves whether or not a user was invited */
 
 -(void)saveInvite:(PFUser *)user{
     PFObject *setInvite = [PFObject objectWithClassName:@"Activity"];
@@ -308,6 +316,8 @@
     [self updateUsers];
 }
 
+/* Saves whether or not users entered into a chatroom with each other */
+
 -(void)saveChat:(PFUser*)user{
     PFObject *setInvite = [PFObject objectWithClassName:@"Activity"];
     [setInvite setObject:@"chat" forKey:@"activity"];
@@ -316,6 +326,8 @@
     [setInvite saveInBackground];
     [self updateUsers];
 }
+
+/* If a user unsuccesfully invites an individual, it saves uninvited */
 
 -(void)saveUninvite:(PFUser*)user{
     PFObject *setInvite = [PFObject objectWithClassName:@"Activity"];
@@ -332,8 +344,9 @@
 
 #pragma mark - MLPeopleViewController Delegate Method
 
+/* Performs the logic to check whether or not the user should invite or open a chatroom with an individual */
+
 -(void)userInviteApproval:(BOOL)userSelection{
-    NSLog(@"userSelection %hhd", userSelection);
 
     if(userSelection == YES){
     PFQuery *queryForInvite = [PFQuery queryWithClassName:@"Activity"];
@@ -359,47 +372,10 @@
          [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+/* Cancels an invite in the event the user does not want to invite said user to chat */
+
 -(void)cancelInvite{
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 @end

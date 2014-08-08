@@ -22,7 +22,6 @@
     CLLocationManager *locationManager;
 }
 
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -37,6 +36,13 @@
     [super viewDidLoad];
 
 
+    /* NavBar Bottom Border */
+    
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 45.0f, self.view.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
+    [self.navigationController.navigationBar.layer addSublayer:bottomBorder];
+    
     locationManager = [[CLLocationManager alloc] init];
 
     [self getCurrentLocation];
@@ -50,9 +56,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+/* Starting up the GPS */
 
 -(void)getCurrentLocation{
     
@@ -61,6 +71,10 @@
     
     [locationManager startUpdatingLocation];
 }
+
+#pragma mark - Location Methods
+
+/* Grabbing the long lat of the user and starts looking for venues nearby */
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
@@ -75,6 +89,8 @@
     }
 }
 
+/* Error checking with the GPS */
+
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError: %@", error);
@@ -83,14 +99,7 @@
     [errorAlert show];
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
+/* Configuring and compiling the string for the Foursquare API call */
 
 -(void)configureRestKit{
     // initialize AFNetworking HTTPClient
@@ -114,6 +123,8 @@
     
     [objectManager addResponseDescriptor:responseDescriptor];
 }
+
+/* Requests the venues near the user  */
 
 -(void)loadVenues{
 
@@ -172,7 +183,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"this happened");
     MLVenue *venue = _venues[indexPath.row];
     PFQuery *updateLocation = [PFQuery queryWithClassName:@"Location"];
     [updateLocation whereKey:@"user" equalTo:[PFUser currentUser]];
@@ -185,7 +195,6 @@
         MLUser *user = [MLUser sharedInstance];
         user.userLocation = venue.name;
             self.tabBarController.selectedIndex = 2;
-        //[self performSegueWithIdentifier:@"locationToPatronsSegue" sender:self];
         }
         else{
             NSLog(@"Error: %@", error);
@@ -194,64 +203,11 @@
 
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
-    
-}
-
+/* Refreshes the user's location and all the venues nearby */
 
 - (IBAction)updateCurrentLocation:(UIBarButtonItem *)sender {
     
     [self getCurrentLocation];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

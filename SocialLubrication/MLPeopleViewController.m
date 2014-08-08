@@ -9,6 +9,7 @@
 #import "MLPeopleViewController.h"
 
 @interface MLPeopleViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *userSelectLabel;
 
 @property (strong, nonatomic) IBOutlet UIImageView *userImage1;
 @property (strong, nonatomic) IBOutlet UIImageView *userImage2;
@@ -42,6 +43,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    /* NavBar Bottom Border */
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, 45.0f, self.view.frame.size.width, 1.0f);
+    
+    bottomBorder.backgroundColor = [[UIColor colorWithRed:241.0/255.0f green:242.0/255.0f blue:242.0/255.0f alpha:1.0] CGColor];
+    
+    [self.navigationController.navigationBar.layer addSublayer:bottomBorder];
+    
+    self.userSelectLabel.text = [NSString stringWithFormat:@"Select who you're comfortable talking to. If you choose %@'s picture, your invite will be sent!", self.selectedUser.username];
+    
+    self.userImage1.contentMode = UIViewContentModeScaleAspectFit;
+    self.userImage2.contentMode = UIViewContentModeScaleAspectFit;
+    self.userImage3.contentMode = UIViewContentModeScaleAspectFit;
+    self.userImage4.contentMode = UIViewContentModeScaleAspectFit;
+    self.userImage5.contentMode = UIViewContentModeScaleAspectFit;
     
     NSLog(@"Selected User: %@", self.selectedUser);
     

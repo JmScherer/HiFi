@@ -12,13 +12,14 @@
 
 @interface MLLoginViewController () <UITextFieldDelegate, MLRegistrationUserInfoViewControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loginActivityIndicator;
 
+@property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @property (strong, nonatomic) IBOutlet UIButton *createAccountButton;
 @property (strong, nonatomic) IBOutlet UIButton *signinButton;
+
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 
@@ -38,26 +39,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    [self subscribeToKeyboardEvents:YES];
-    
-    [scroller setScrollEnabled:YES];
-    scroller.contentSize = CGSizeMake(320, 568);
     
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [scroller addGestureRecognizer:tap];
-    
     self.loginActivityIndicator.hidden = YES;
     
-    //Temp Login
+    
+    /* Setting up the UIScrollView */
+    [scroller setScrollEnabled:YES];
+    scroller.contentSize = CGSizeMake(320, 568);
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [scroller addGestureRecognizer:tap];
+    [self subscribeToKeyboardEvents:YES];
+    
+    /* Temp login for testing purposes */
     
     self.usernameTextField.text = @"Jscherer";
     self.passwordTextField.text = @"Homehome1";
 
+    /* Making sure the background is the appropriate for the user's screen size */
+    
     int x = [[UIScreen mainScreen] bounds].size.width;
     int y = [[UIScreen mainScreen] bounds].size.height;
     
@@ -71,14 +73,24 @@
         self.backgroundImageView.image = [UIImage imageNamed:@"iphone4_register_screen_2.png"];
     }
     
-//    self.signinButton.layer.borderWidth = 1.0;
-//    self.signinButton.layer.cornerRadius = 5;
-//    self.signinButton.layer.borderColor = [UIColor blackColor].CGColor;
+    /* Conforming text fields to design standards */
     
+    self.usernameTextField.layer.cornerRadius=8.0f;
+    self.usernameTextField.layer.masksToBounds=YES;
+    self.usernameTextField.layer.borderColor=[[UIColor colorWithRed:109.0/255.0f green:110.0/255.0f blue:113.0/255.0f alpha:1.0f]CGColor];
+    self.usernameTextField.layer.borderWidth= 1.0f;
+    
+    self.passwordTextField.layer.cornerRadius=8.0f;
+    self.passwordTextField.layer.masksToBounds=YES;
+    self.passwordTextField.layer.borderColor=[[UIColor colorWithRed:109.0/255.0f green:110.0/255.0f blue:113.0/255.0f alpha:1.0f]CGColor];
+    self.passwordTextField.layer.borderWidth= 1.0f;
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    /* Keep nav bar hidden on login page at all times */
+    
     self.navigationController.navigationBar.hidden = YES;
 }
 
@@ -86,7 +98,11 @@
     [self subscribeToKeyboardEvents:NO];
 }
 
+#pragma mark - Keyboard Events
+
 - (void)subscribeToKeyboardEvents:(BOOL)subscribe{
+    
+    /* Make sure the keyboard responds to user's request to dismiss the keyboard and scroll the view if needed */
     
     if(subscribe){
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -102,6 +118,8 @@
 }
 
 - (void) keyboardDidShow:(NSNotification *)nsNotification {
+    
+    /* Make sure the keyboard shows up and pushes the view up so the text field is not being covered by the keyboard */
     
     NSDictionary * userInfo = [nsNotification userInfo];
     CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
@@ -121,6 +139,8 @@
 }
 
 -(void)keyboardWillHide:(NSNotification *)nsNotification {
+    
+    /* Reset the view when the keyboard is dismissed */
     
     NSDictionary * userInfo = [nsNotification userInfo];
     CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
@@ -173,6 +193,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
+    /* If the user enters their username and tries to login to no avail, the username will be carried over to the registration page so they don't have to enter their username twice */
+    
     if([segue.destinationViewController isKindOfClass:[MLRegistrationUserInfoViewController class]]){
         MLRegistrationUserInfoViewController *registerUserVC = segue.destinationViewController;
         registerUserVC.delegate = self;
@@ -199,16 +221,17 @@
     [self.passwordTextField resignFirstResponder];
 }
 
-#pragma mark - Buttons
+#pragma mark - Button Methods
 
 
 - (IBAction)createAccountButtonPressed:(UIButton *)sender {
     
-    //[self performSegueWithIdentifier:@"loginToRegisterSegue" sender:self];
-    
+    [self performSegueWithIdentifier:@"loginToRegisterSegue" sender:self];
 }
 
 - (IBAction)SigninButtonPressed:(UIButton *)sender {
+    
+    /* User login method. Spins the activity indicator to show that the data is being sent to the server and the user has to wait. When finished, performs segue to the main page. */
     
     self.loginActivityIndicator.hidden = NO;
     [self.loginActivityIndicator startAnimating];
@@ -236,6 +259,8 @@
 }
 
 #pragma mark - MLRegistrationDelegate
+
+/* Test user #2, press button to change the credentials for debugging on separate account */
 
 - (IBAction)awesomeButton:(UIButton *)sender {
     self.usernameTextField.text = @"Awesome";
