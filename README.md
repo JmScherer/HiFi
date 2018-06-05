@@ -8,5 +8,5 @@ This application allowed users to check into an establishment and list a few of 
 
 ## Preview
 
+<img src="SocialLubrication/iphone5_register_screen.png" width="50%" height="50%"/>
 
-<img src="HiFi/SocialLubrication/iphone5_register_screen.png" width="50%" height="50%"/>
